@@ -225,6 +225,99 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--hint)}
 
 <div id="work" style="position:relative;top:-80px;visibility:hidden"></div><p class="slabel">Projects</p>
 
+<!-- MIDDDLEMAN -->
+<div class="proj reveal">
+  <div style="background:#0c1a14">
+    <div class="tab-bar">
+      <div class="proj-tab active" onclick="switchTab('p_midd',this,'wallet')">Wallet &amp; payments</div>
+      <div class="proj-tab" onclick="switchTab('p_midd',this,'sourcing')">Sourcing &amp; agents</div>
+    </div>
+    <div id="p_midd-wallet" class="screens-bg dark" style="background:#0c1a14">
+      <div class="phone-frame" style="margin-bottom:28px"><img class="phone-img" src="assets/midddleman/01-home-wallet.webp" loading="lazy" decoding="async" alt="Midddleman home with wallet balance, Fund Wallet and Buy RMB"></div>
+      <div class="phone-frame tall" style="align-self:flex-end"><img class="phone-img" src="assets/midddleman/02-buy-rmb.webp" loading="lazy" decoding="async" alt="Buy RMB screen with today's exchange rate and naira amount"></div>
+      <div class="phone-frame" style="margin-bottom:18px"><img class="phone-img" src="assets/midddleman/05-activity-feed.webp" loading="lazy" decoding="async" alt="Activity feed of RMB purchases, wallet funding and withdrawals with statuses"></div>
+    </div>
+    <div id="p_midd-sourcing" class="screens-bg dark" style="display:none;background:#0c1a14">
+      <div class="phone-frame" style="margin-bottom:24px"><img class="phone-img" src="assets/midddleman/03-1688-marketplace.webp" loading="lazy" decoding="async" alt="Marketplace for browsing 1688 products in local currency"></div>
+      <div class="phone-frame tall" style="align-self:flex-end"><img class="phone-img" src="assets/midddleman/04-ai-assistant.webp" loading="lazy" decoding="async" alt="Midddleman AI answering a shipping cost question"></div>
+      <div class="phone-frame" style="margin-bottom:14px"><img class="phone-img" src="assets/midddleman/06-hire-agents.webp" loading="lazy" decoding="async" alt="Procurement orders list with agent quotes"></div>
+    </div>
+  </div>
+  <div class="proj-info">
+    <div class="proj-head">
+      <div class="proj-title">Midddleman — China sourcing for Nigerian importers</div>
+      <span class="badge-live">Live · 10k+ on Play Store</span>
+    </div>
+    <div class="feat-pill blue">✦ Pay suppliers in RMB, browse 1688, and hire agents in China — in one app</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:.875rem">
+      <a href="https://play.google.com/store/apps/details?id=com.app.midddleman" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-family:'DM Mono',monospace;padding:5px 12px;border-radius:7px;background:rgba(93,202,165,0.1);border:0.5px solid rgba(93,202,165,0.25);color:#5DCAA5;text-decoration:none;transition:background .15s" onmouseover="this.style.background='rgba(93,202,165,0.18)'" onmouseout="this.style.background='rgba(93,202,165,0.1)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Play Store — Midddleman
+      </a>
+      <a href="https://apps.apple.com/us/app/midddleman/id6744252874" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-family:'DM Mono',monospace;padding:5px 12px;border-radius:7px;background:rgba(55,138,221,0.1);border:0.5px solid rgba(55,138,221,0.25);color:#85B7EB;text-decoration:none;transition:background .15s" onmouseover="this.style.background='rgba(55,138,221,0.18)'" onmouseout="this.style.background='rgba(55,138,221,0.1)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        App Store — Midddleman
+      </a>
+    </div>
+    <p class="proj-sub">Importers fund a naira wallet, buy RMB to pay suppliers on Alipay and WeChat, browse 1688 in local currency, and hire procurement agents in China. A team-built product; the parts I own are listed below.</p>
+    <div class="ptags">
+      <span class="ptag">Flutter</span><span class="ptag">Dart</span><span class="ptag">Offline handling</span><span class="ptag">iOS push</span><span class="ptag">Session management</span>
+    </div>
+    <ul class="bullets">
+      <li>Connectivity and offline layer, so the app stays usable on unreliable networks</li>
+      <li>Session-timeout handling</li>
+      <li>iOS push notifications and app-icon badging</li>
+      <li>Release configuration for the App Store and Play Store</li>
+    </ul>
+  </div>
+</div>
+
+<!-- MIDDDLEMAN AGENT -->
+<div class="proj reveal">
+  <div style="background:#0c1a14">
+    <div class="tab-bar">
+      <div class="proj-tab active" onclick="switchTab('p_agent',this,'orders')">Orders</div>
+      <div class="proj-tab" onclick="switchTab('p_agent',this,'earnings')">Earnings</div>
+    </div>
+    <div id="p_agent-orders" class="screens-bg dark" style="background:#0c1a14">
+      <div class="phone-frame" style="margin-bottom:28px"><img class="phone-img" src="assets/midddleman-agent/01-earnings-dashboard.webp" loading="lazy" decoding="async" alt="Agent home with total procurement value and order shortcuts"></div>
+      <div class="phone-frame tall" style="align-self:flex-end"><img class="phone-img" src="assets/midddleman-agent/02-accept-or-decline-order.webp" loading="lazy" decoding="async" alt="Confirm procurement screen with Accept order and Decline order buttons"></div>
+      <div class="phone-frame" style="margin-bottom:18px"><img class="phone-img" src="assets/midddleman-agent/03-order-tracking.webp" loading="lazy" decoding="async" alt="Procurement orders filtered by stage: Pending, Quoting, Awaiting Payment"></div>
+    </div>
+    <div id="p_agent-earnings" class="screens-bg dark" style="display:none;background:#0c1a14">
+      <div class="phone-frame tall" style="align-self:flex-end"><img class="phone-img" src="assets/midddleman-agent/04-earnings-and-kyc.webp" loading="lazy" decoding="async" alt="Settings with total earnings, withdraw funds and KYC"></div>
+      <div class="phone-frame" style="margin-bottom:18px"><img class="phone-img" src="assets/midddleman-agent/05-withdrawal-accounts.webp" loading="lazy" decoding="async" alt="Withdrawal accounts for bank and Alipay"></div>
+    </div>
+  </div>
+  <div class="proj-info">
+    <div class="proj-head">
+      <div class="proj-title">Midddleman Agent — Procurement agent app</div>
+      <span class="badge-live">Live on both stores</span>
+    </div>
+    <div class="feat-pill blue">✦ Accept orders, track every stage, and withdraw earnings to bank or Alipay</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:.875rem">
+      <a href="https://play.google.com/store/apps/details?id=com.midddleman.procurement" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-family:'DM Mono',monospace;padding:5px 12px;border-radius:7px;background:rgba(93,202,165,0.1);border:0.5px solid rgba(93,202,165,0.25);color:#5DCAA5;text-decoration:none;transition:background .15s" onmouseover="this.style.background='rgba(93,202,165,0.18)'" onmouseout="this.style.background='rgba(93,202,165,0.1)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Play Store — Agent app
+      </a>
+      <a href="https://apps.apple.com/us/app/midddleman-agent/id6756414848" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-family:'DM Mono',monospace;padding:5px 12px;border-radius:7px;background:rgba(55,138,221,0.1);border:0.5px solid rgba(55,138,221,0.25);color:#85B7EB;text-decoration:none;transition:background .15s" onmouseover="this.style.background='rgba(55,138,221,0.18)'" onmouseout="this.style.background='rgba(55,138,221,0.1)'">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        App Store — Agent app
+      </a>
+    </div>
+    <p class="proj-sub">The companion app for procurement agents in China who fulfil Midddleman orders: accept or decline requests, follow each order through quoting, payment and sourcing, and withdraw earnings. A team-built product; the parts I own are listed below.</p>
+    <div class="ptags">
+      <span class="ptag">Flutter</span><span class="ptag">Dart</span><span class="ptag">Chat</span><span class="ptag">Offline-first</span><span class="ptag">Caching</span><span class="ptag">Session security</span>
+    </div>
+    <ul class="bullets">
+      <li>Procurement chat</li>
+      <li>Survey system</li>
+      <li>Offline, session-security, and caching layers</li>
+      <li>Release engineering across the App Store and Play Store</li>
+    </ul>
+  </div>
+</div>
+
 <!-- PAWSHAUZ -->
 <div class="proj reveal">
   <div style="background:#111110">
@@ -484,7 +577,20 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--hint)}
 <p class="slabel">Experience</p>
 <div class="exp-wrap">
   <div class="exp-row reveal">
-    <div class="exp-date">Jul 2025<br>Present</div>
+    <div class="exp-date">Sep 2026<br>Present</div>
+    <div>
+      <div class="exp-role">Lead Mobile Developer</div>
+      <div class="exp-co">Midddleman Technologies</div>
+      <ul class="exp-pts">
+        <li>Lead mobile development of the Midddleman customer and agent apps on iOS and Android (customer app: 10k+ installs on Google Play), with responsibility for technical direction and delivery</li>
+        <li>Own the procurement chat, survey system, and offline, session-security, and caching layers in the agent app; connectivity, session-timeout, iOS push, and badging in the customer app</li>
+        <li>Own the end-to-end release pipeline across App Store Connect, TestFlight, Google Play Console, and Shorebird OTA patching</li>
+        <li>Work with the QA team to validate builds before release</li>
+      </ul>
+    </div>
+  </div>
+  <div class="exp-row reveal">
+    <div class="exp-date">Jul 2025<br>Jul 2026</div>
     <div>
       <div class="exp-role">Flutter Mobile Engineer</div>
       <div class="exp-co">Jamforte Technologies · Abuja, Nigeria · Full-time</div>
