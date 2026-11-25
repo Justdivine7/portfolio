@@ -7,7 +7,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
-import { site, projects, moreWork, experience, principles, expertise } from '../src/content.mjs';
+import { site, projects, moreWork, experience, education, principles, expertise } from '../src/content.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOW = new Date();
@@ -163,7 +163,7 @@ function header() {
 function contactSection({ compact = false } = {}) {
   const links = [
     ...site.links.map((l) => ({ label: l.label, value: l.handle, href: l.href })),
-    { label: 'Resume', value: 'Google Docs', href: site.resume },
+    { label: 'Resume', value: 'PDF · 2 pages', href: site.resume },
     { label: 'Phone', value: site.phone.display, href: site.phone.href },
   ];
   return `<section class="contact" id="contact" aria-labelledby="contact-title">
@@ -325,7 +325,7 @@ const LAYOUTS = {
     const notes = {
       'Customer app': 'Shop, find vets, ask PawsAI.',
       'Merchant app': 'Earnings, inventory, orders.',
-      'Vet app': 'Consultations, emergencies, clinics.',
+      'Merchant app · Vets': 'Consultations, emergencies, clinics.',
     };
     return `<article class="chapter chapter--triptych stage" style="${themeStyle(p.theme)}" aria-labelledby="t-${p.slug}">
   <div class="wrap">
@@ -441,7 +441,7 @@ function moreWorkSection() {
   return `<div class="more wrap">
   <div class="more__head" data-reveal>
     <h3 class="eyebrow">Also shipped</h3>
-    <p>Two more products in production or delivered to the client.</p>
+    <p>Two more products, built from scratch and now in internal testing.</p>
   </div>
   <ul class="more__list">
     ${moreWork
@@ -509,7 +509,7 @@ function experienceSection() {
     <header class="section-head">
       <p class="eyebrow" data-reveal>Experience</p>
       <h2 class="section-title" id="exp-title" data-split>${words('From internship finalist', 0)} ${words('to leading mobile.', 3, true)}</h2>
-      <p class="section-lede" data-reveal>Five roles since February 2025 — each one with more of the product, and more of the release, in my hands.</p>
+      <p class="section-lede" data-reveal>Six roles since February 2025 — from intern to mentor to lead, each with more of the product, and more of the release, in my hands.</p>
     </header>
     ${timeline()}
     <ol class="roles">
@@ -534,6 +534,10 @@ function experienceSection() {
         )
         .join('')}
     </ol>
+    <div class="edu" data-reveal>
+      <h3 class="eyebrow">Education</h3>
+      <ul>${education.map((e) => `<li><span class="edu__what">${esc(e.what)}</span><span class="edu__where">${esc(e.where)}</span><span class="edu__when">${esc(e.when)}</span></li>`).join('')}</ul>
+    </div>
   </div>
 </section>`;
 }
@@ -545,7 +549,7 @@ function aboutSection() {
       <p class="eyebrow" data-reveal>About</p>
       <h2 class="about__statement" id="about-title" data-split>${words('I care most about the parts of an app', 0)} ${words('nobody screenshots', 8, true)} ${words('— the architecture, the failure states, the release.', 10)}</h2>
       <div class="about__bio" data-reveal-group>
-        <p data-reveal>I’m a Flutter and Dart engineer based in Akure, Nigeria. Today I lead mobile development at Midddleman Technologies, where I own the release pipeline and the layers that keep the customer and agent apps dependable. Before that I was the sole mobile engineer at Jamforte Technologies, shipping Pawshauz and Difamer, and I’ve built delivery and sports apps on contract.</p>
+        <p data-reveal>I’m a Flutter and Dart engineer based in Akure, Nigeria. Today I lead mobile development at Midddleman Technologies, where I own the release pipeline and the layers that keep the customer and agent apps dependable. Before that I was the sole mobile engineer at Jamforte Technologies, shipping Pawshauz and Difamer, and I’ve built delivery and sports apps on contract. In 2026 I went back to the HNG Internship as a Flutter mentor.</p>
         <p data-reveal>Alongside that I build AI-native products — Shmood and Sanah — to push on what a mobile app can do with voice, vision and language models, without letting a model make things up.</p>
       </div>
     </div>
@@ -580,7 +584,7 @@ ${hero()}
   <header class="wrap section-head section-head--work">
     <p class="eyebrow" data-reveal>Selected work · 2025 — ${NOW.getFullYear()}</p>
     <h2 class="section-title" id="work-title" data-split>${words('Products in', 0)} ${words('people’s hands.', 2, true)}</h2>
-    <p class="section-lede" data-reveal>Fintech, marketplaces, delivery and AI — shipped to the App Store and Google Play. Where a product was built by a team, I say exactly which parts were mine.</p>
+    <p class="section-lede" data-reveal>Fintech, marketplaces, delivery and AI — live in the stores or in testing ahead of launch. Where a product was built by a team, I say exactly which parts were mine.</p>
   </header>
   ${projects.map((p, i) => LAYOUTS[p.layout](p, i)).join('\n')}
   ${moreWorkSection()}
