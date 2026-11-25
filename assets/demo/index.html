@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/assets/demo/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Relay — a live Flutter demo: offline-first sync, optimistic UI and payment-state handling.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#F3F0E8">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <title>Relay — live Flutter demo</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #F3F0E8; }
+    #splash {
+      position: fixed; inset: 0; display: grid; place-content: center; gap: 14px; justify-items: center;
+      font: 500 12px/1.4 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #6B675F;
+      transition: opacity .3s ease;
+    }
+    #splash b { font-size: 18px; letter-spacing: .14em; color: #151412; }
+    #splash i { display: block; width: 120px; height: 2px; background: #E2DDD2; border-radius: 2px; overflow: hidden; position: relative; }
+    #splash i::after { content: ''; position: absolute; inset: 0; width: 40%; background: #151412; animation: load 1.1s ease-in-out infinite; }
+    @keyframes load { from { transform: translateX(-100%); } to { transform: translateX(260%); } }
+    @media (prefers-reduced-motion: reduce) { #splash i::after { animation: none; width: 100%; opacity: .4; } }
+  </style>
+</head>
+<body>
+  <div id="splash" role="status" aria-live="polite"><b>RELAY</b><i></i><span>Starting the Flutter engine…</span></div>
+  <script>
+    // Hide the splash on Flutter's first frame and tell the embedding page.
+    window.addEventListener('flutter-first-frame', function () {
+      var s = document.getElementById('splash');
+      if (s) { s.style.opacity = '0'; setTimeout(function () { s.remove(); }, 320); }
+      try { if (window.parent !== window) window.parent.postMessage({ type: 'relay:ready' }, window.location.origin); } catch (e) {}
+    });
+    // Keyboard focus lives inside this frame, so forward Escape to the embedding page
+    // (it closes the full-screen demo on phones).
+    window.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape' || window.parent === window) return;
+      try { window.parent.postMessage({ type: 'relay:escape' }, window.location.origin); } catch (err) {}
+    }, true);
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
