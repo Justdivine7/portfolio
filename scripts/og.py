@@ -55,8 +55,8 @@ img.save(A('og.png'), optimize=True)
 
 icon = Image.new('RGB', (360, 360), INK)
 di = ImageDraw.Draw(icon)
-f = ImageFont.truetype('/System/Library/Fonts/NewYorkItalic.ttf', 190)
-bb = di.textbbox((0, 0), 'Da', font=f)
-di.text(((360 - (bb[2] - bb[0])) / 2 - bb[0], (360 - (bb[3] - bb[1])) / 2 - bb[1]), 'Da', font=f, fill=PAPER)
+f = sf(150, 800)  # matches the squared, heavy 'DA' wordmark
+bb = di.textbbox((0, 0), 'DA', font=f)
+di.text(((360 - (bb[2] - bb[0])) / 2 - bb[0], (360 - (bb[3] - bb[1])) / 2 - bb[1]), 'DA', font=f, fill=PAPER)
 icon.resize((180, 180), Image.LANCZOS).save(A('apple-touch-icon.png'), optimize=True)
 print('ok', os.path.getsize(A('og.png')))
