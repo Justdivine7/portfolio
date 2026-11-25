@@ -15,14 +15,14 @@ export const site = {
   availability: 'Open to international roles',
   email: 'divineajayi179@gmail.com',
   phone: { display: '+234 701 768 8976', href: 'tel:+2347017688976' },
-  resume: 'https://docs.google.com/document/d/1QVKqj-YDmwgxXMshzW5mJi7K81aaL-JzmLRAoFA1aPk/edit?tab=t.0',
+  resume: '/divine-ajayi-cv.pdf',
   links: [
     { label: 'LinkedIn', handle: 'ajayi-divine', href: 'https://linkedin.com/in/ajayi-divine' },
     { label: 'GitHub', handle: 'Justdivine7', href: 'https://github.com/Justdivine7' },
   ],
   facts: [
-    { k: 'Shipping', v: '5+ apps in production' },
-    { k: 'Platforms', v: 'iOS & Android' },
+    { k: 'Live apps', v: '4 on the App Store & Google Play' },
+    { k: 'Installs', v: '10,000+ across Midddleman & Pawshauz' },
     { k: 'Based in', v: 'Akure, Nigeria · Remote' },
   ],
 };
@@ -196,14 +196,14 @@ export const projects = [
     slug: 'pawshauz',
     name: 'Pawshauz',
     category: 'Pet services marketplace',
-    tagline: 'Three apps, one pet-care marketplace.',
+    tagline: 'Two apps, one pet-care marketplace.',
     summary:
-      'A multi-sided marketplace — customer, merchant and vet apps, all in production. Built solo as the sole mobile engineer at Jamforte Technologies.',
+      'A two-sided pet-care marketplace: a customer app for pet owners and a merchant app that also serves vets. Built from scratch as the sole mobile engineer at Jamforte Technologies and shipped to both stores — about 1,000 users combined.',
     layout: 'triptych',
     kind: 'device',
     theme: { bg: '#F2E6D6', fg: '#1E1712', muted: '#6C5D50', accent: '#D9581E', panel: '#E8D7C2' },
     status: 'Live',
-    statusNote: 'On Google Play and the App Store',
+    statusNote: 'About 1,000 users on both stores',
     role: 'Flutter Mobile Engineer — sole mobile engineer',
     context: 'Jamforte Technologies · Abuja, Nigeria',
     timeline: 'Jul 2025 — Jul 2026',
@@ -215,21 +215,21 @@ export const projects = [
       { label: 'App Store · Merchant', href: 'https://apps.apple.com/ng/app/pawshauz-business/id6768560243' },
     ],
     owned: [
-      'PawsAI — an in-app AI pet-care assistant with streaming responses and session persistence',
+      'PawsAI — an in-app AI pet-care assistant with letter-by-letter streaming, persistent sessions and graceful mid-response exit',
       'Merchant dashboard with earnings chart, inventory management with TTL caching, and the full order pipeline',
-      'Vet app with consultation requests, emergency alerts and multi-clinic switching',
+      'Vet side of the merchant app: consultation requests, emergency alerts and multi-clinic switching',
       'Real-time chat with optimistic UI, multi-image bubbles and date separators',
       'The full iOS and Android release pipeline',
     ],
     stack: ['Flutter', 'BLoC', 'Flutterwave', 'Google Places SDK', 'OneSignal', 'Shorebird', 'App Store Connect', 'Play Console'],
     overview: [
-      'Pawshauz connects pet owners with the businesses and vets that look after their pets. It is three products: a customer app for shopping, finding vets and asking PawsAI for advice; a merchant app for running a pet business; and a vet app for handling consultations.',
+      'Pawshauz connects pet owners with the businesses and vets that look after their pets. It is two products: a customer app for shopping, finding vets and asking PawsAI for advice, and a merchant app for running a pet business — which vets also use to handle consultations.',
       'I was the sole mobile engineer at Jamforte Technologies, so the mobile side — architecture, features and releases — was mine end to end.',
     ],
     problem:
-      'A multi-sided marketplace has to work for every side at once. Customers need to find help and products quickly; merchants need to see earnings, keep inventory accurate and move orders along; vets need to respond to consultations and emergencies — potentially across more than one clinic.',
+      'A two-sided marketplace has to work for every side at once. Customers need to find help and products quickly; merchants need to see earnings, keep inventory accurate and move orders along; vets need to respond to consultations and emergencies — potentially across more than one clinic.',
     team:
-      'I built the Pawshauz mobile apps solo as the sole mobile engineer at Jamforte Technologies, working against the company’s backend.',
+      'I built Pawshauz Customer and Pawshauz Merchant from scratch as the sole mobile engineer at Jamforte Technologies, working against the company’s backend, and shipped both to production through full release pipelines.',
     challenges: [
       {
         title: 'An AI assistant that behaves like a product feature',
@@ -241,7 +241,7 @@ export const projects = [
       },
       {
         title: 'Vets who work across clinics',
-        body: 'The vet experience covers consultation requests and emergency alerts, with switching between multiple clinics.',
+        body: 'Vets work inside the merchant app: consultation requests and emergency alerts, with switching between multiple clinics.',
       },
       {
         title: 'Chat that feels instant',
@@ -253,7 +253,7 @@ export const projects = [
       },
     ],
     architecture: [
-      { k: 'State', v: 'BLoC' },
+      { k: 'Structure', v: 'Clean Architecture — BLoC, repository pattern over Dio, GetIt injection' },
       { k: 'Payments', v: 'Flutterwave — subscriptions, wallet top-up, withdrawal' },
       { k: 'Location', v: 'Google Places SDK' },
       { k: 'Notifications', v: 'OneSignal' },
@@ -279,7 +279,7 @@ export const projects = [
         ],
       },
       {
-        title: 'Vet app',
+        title: 'Merchant app · Vets',
         items: [
           S('pawshauz', 'vet-01-dashboard', 'Vet dashboard', 'Dashboard'),
           S('pawshauz', 'vet-02-clinics', 'Vet clinic switching', 'Clinics'),
@@ -288,7 +288,7 @@ export const projects = [
     ],
     outcome: [
       'Customer and merchant apps live on Google Play and the App Store.',
-      'Customer, merchant and vet experiences all in production.',
+      'About 1,000 users across both apps.',
     ],
   },
 
@@ -472,12 +472,12 @@ export const projects = [
     category: 'Food · Logistics',
     tagline: 'One basket, many restaurants.',
     summary:
-      'A multi-category delivery platform — food, groceries, pharmacy and logistics. I built the customer app from scratch and overhauled the rider app to production standard.',
+      'A two-sided delivery platform for food, groceries, pharmacy and logistics. I built the customer app from scratch and overhauled the rider app’s architecture, state management and UI; both are in internal testing ahead of launch.',
     layout: 'strip',
     kind: 'device',
     theme: { bg: '#ECE6F2', fg: '#1C1524', muted: '#62566F', accent: '#6D3FB0', panel: '#E0D7EA' },
-    status: 'Live',
-    statusNote: 'Food, groceries, pharmacy, logistics',
+    status: 'In internal testing',
+    statusNote: 'Customer and rider apps, ahead of launch',
     role: 'Contract Flutter Mobile Engineer',
     context: 'Ofast · Remote contract',
     timeline: 'Sep 2025 — Present',
@@ -487,7 +487,7 @@ export const projects = [
       'Customer app built from scratch',
       'Rider app architecture, state management and UI overhauled',
       'Multi-vendor cart — order from multiple restaurants in a single checkout',
-      'Real-time rider order notifications over WebSockets',
+      'Real-time rider order notifications over WebSockets for live delivery tracking',
       'Paystack integration with success, failure and cancellation handled',
     ],
     stack: ['Flutter', 'BLoC', 'Paystack', 'WebSockets', 'Dio'],
@@ -509,7 +509,7 @@ export const projects = [
       },
       {
         title: 'Riders in real time',
-        body: 'Rider order notifications arrive over WebSockets.',
+        body: 'Rider order notifications arrive over WebSockets, so riders see new orders and live delivery updates as they happen.',
       },
       {
         title: 'Every payment state',
@@ -537,7 +537,7 @@ export const projects = [
         items: [S('ofxpress', 'rider-01-orders', 'Ofxpress rider orders', 'Live orders')],
       },
     ],
-    outcome: ['Live.', 'Customer app built from scratch; rider app overhauled to production standard.'],
+    outcome: ['Both apps in internal testing ahead of launch.', 'Customer app built from scratch; rider app overhauled end to end.'],
   },
 ];
 
@@ -548,9 +548,9 @@ export const moreWork = [
     name: 'Difamer',
     category: 'Agri-tech marketplace',
     where: 'Jamforte Technologies',
-    status: 'Live',
+    status: 'In internal testing',
     summary:
-      'Connects farmers with buyers. Farmers list produce, manage inventory, track orders and receive payments — all from one app.',
+      'Difamer Business is the farmer-facing app of an agri-marketplace: farmers list produce for customers to browse and buy, manage stock, track orders and get paid.',
     points: [
       'Produce listing with stock management, product images and category tagging',
       'Wallet with earnings tracking, top-up and withdrawal via Flutterwave',
@@ -571,13 +571,14 @@ export const moreWork = [
     name: 'NextKick',
     category: 'Sports technology',
     where: 'Freelance',
-    status: 'Delivered',
+    status: 'In internal testing',
     summary:
-      'Two linked apps — player and admin — built independently from scratch for a private client, covering tournament registration with payments and live match updates.',
+      'An amateur football platform: a player app and a linked admin app, both built independently from scratch for a private client.',
     points: [
-      'Player and admin apps built independently from scratch and delivered to a private client',
+      'Player app: watch training drills, upload your own for admin review, follow team leaderboards and ongoing tournaments',
       'Tournament registration with Monnify payment processing end to end',
-      'Real-time live match score updates over WebSockets',
+      'Admin app with review of player-submitted drills',
+      'Real-time live match updates over WebSockets',
     ],
     stack: ['Flutter', 'BLoC', 'Monnify', 'WebSockets'],
     screens: [S('nextkick', '01-signup', 'NextKick sign-up choosing Player or Team', 'Sign-up')],
@@ -612,9 +613,10 @@ export const experience = [
     dates: 'Jul 2025 — Jul 2026',
     projects: ['pawshauz'],
     points: [
-      'Architected and shipped 3 production apps (Pawshauz customer, Pawshauz business and Difamer business) across iOS and Android',
-      'Integrated AI chat with streaming responses, session persistence and mid-response exit handling',
-      'Flutterwave payment flows covering subscription checkout, wallet top-up and in-app withdrawal',
+      'Built Pawshauz Customer and Pawshauz Merchant from scratch as a two-sided marketplace and shipped both to production on iOS and Android — about 1,000 users combined',
+      'Built Difamer Business, a farmer-facing app for listing produce for customers to browse and buy (in internal testing)',
+      'Established Clean Architecture across all codebases — BLoC, repository pattern over Dio, GetIt — decoupling UI from data sources',
+      'AI chat with persistent sessions, letter-by-letter streaming and graceful mid-response exit; Flutterwave subscription, top-up and withdrawal flows',
     ],
   },
   {
@@ -627,9 +629,23 @@ export const experience = [
     dates: 'Sep 2025 — Present',
     projects: ['ofxpress'],
     points: [
-      'Built the customer app from scratch; overhauled the rider app architecture, state management and UI',
-      'Engineered a multi-category lazy-loading homepage, all sections resolved from a single endpoint',
-      'Real-time rider order notifications via WebSockets; Paystack payment integration',
+      'Built the customer app from scratch and overhauled the rider app’s architecture, state management and UI; both in internal testing ahead of launch',
+      'Multi-category homepage where each vendor section loads independently and lazily from a single endpoint',
+      'Real-time rider order notifications over WebSockets; Paystack payments with success, failure and cancellation handled',
+    ],
+  },
+  {
+    role: 'Flutter Engineering Mentor',
+    company: 'HNG Internship',
+    meta: 'Remote · Volunteer',
+    scope: 'Mentor',
+    start: '2026-04',
+    end: '2026-06',
+    dates: 'Apr — Jun 2026',
+    projects: [],
+    points: [
+      'Mentored interns through the programme — 10 in the early stage, narrowing to 4 by the final stage — with 1:1 technical guidance and code reviews',
+      'Guided interns building the Telex desktop collaboration app: translating design specs into Flutter UI and unblocking state-management and architecture issues',
     ],
   },
   {
@@ -642,8 +658,8 @@ export const experience = [
     dates: 'Aug — Nov 2025',
     projects: [],
     points: [
-      'Delivered player and admin apps independently from scratch for a private client',
-      'Tournament registration with Monnify payments and real-time live match updates via WebSockets',
+      'Built NextKick Player and NextKick Admin independently from scratch for an amateur football platform (in internal testing)',
+      'Training drills with admin review, team leaderboards, tournament registration with Monnify payments, and live match updates over WebSockets',
     ],
   },
   {
@@ -660,6 +676,11 @@ export const experience = [
       'Finished as one of 19 finalists from the full cohort',
     ],
   },
+];
+
+export const education = [
+  { what: 'BSc, Plant Science and Biotechnology', where: 'Adekunle Ajasin University, Ondo, Nigeria', when: '2019 — 2023' },
+  { what: 'Mobile App Development', where: 'Complete Computer Institute, Akure, Nigeria', when: 'Aug — Dec 2024' },
 ];
 
 export const principles = [
@@ -682,10 +703,11 @@ export const principles = [
 ];
 
 export const expertise = [
-  { group: 'Mobile', items: ['Flutter', 'Dart', 'Kotlin', 'Native Android'], note: 'Flutter is the primary stack across every product here, shipped to iOS and Android.' },
-  { group: 'Architecture', items: ['BLoC', 'Riverpod', 'Clean Architecture', 'GetIt'], note: 'Layered apps with clear data, domain and presentation boundaries and injected dependencies.' },
-  { group: 'Networking & data', items: ['Dio', 'REST APIs', 'WebSockets', 'Hive', 'Firebase'], note: 'Offline-first behaviour, caching (including TTL caching) and session management.' },
-  { group: 'Payments & services', items: ['Paystack', 'Flutterwave', 'Monnify', 'OneSignal', 'Google Places SDK'], note: 'Integrated in production across Ofxpress, Pawshauz, Difamer and NextKick.' },
+  { group: 'Mobile', items: ['Flutter', 'Dart', 'Kotlin', 'Native Android', 'Flutter desktop'], note: 'Flutter is the primary stack across every product here, shipped to iOS and Android.' },
+  { group: 'Architecture', items: ['Clean Architecture', 'Repository pattern', 'BLoC', 'Riverpod', 'GetIt'], note: 'Layered apps with clear data, domain and presentation boundaries and injected dependencies.' },
+  { group: 'Testing', items: ['Unit tests', 'Widget tests', 'QA handoff'], note: 'Decoupled layers so logic can be tested independently; builds validated with QA before release.' },
+  { group: 'Networking & data', items: ['Dio', 'REST APIs', 'WebSockets', 'Firebase', 'Hive', 'GetStorage'], note: 'Offline-first behaviour, caching (including TTL caching) and session management.' },
+  { group: 'Payments & services', items: ['Paystack', 'Flutterwave', 'Monnify', 'Apple IAP', 'OneSignal', 'Google Places SDK'], note: 'Paystack in Ofxpress, Flutterwave in Pawshauz and Difamer, Monnify in NextKick — every success, failure and cancellation state handled.' },
   { group: 'AI & real-time', items: ['OpenAI APIs', 'OpenAI Realtime', 'Anthropic API', 'WebRTC'], note: 'Streaming assistants, live voice and multi-stage AI pipelines.' },
-  { group: 'Delivery', items: ['App Store Connect', 'TestFlight', 'Google Play Console', 'Shorebird OTA', 'CI/CD'], note: 'The full release pipeline, from code signing to over-the-air patches.' },
+  { group: 'Delivery', items: ['App Store Connect', 'TestFlight', 'Xcode signing', 'Google Play Console', 'Gradle', 'Shorebird OTA'], note: 'The full release pipeline, from code signing to over-the-air patches.' },
 ];

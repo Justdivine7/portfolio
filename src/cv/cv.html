@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Divine Ajayi — CV</title>
+<!-- Source for /divine-ajayi-cv.pdf. Render with: swift scripts/cv.swift -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=block">
+<style>
+  :root {
+    --ink: #151412; --ink-2: #3f3c37; --ink-3: #6b675f; --line: #d9d4c9; --accent: #c2410c;
+    --sans: 'Geist', 'Helvetica Neue', Arial, sans-serif;
+    --serif: 'Instrument Serif', Georgia, serif;
+    --mono: 'Geist Mono', Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body { font-family: var(--sans); color: var(--ink); font-size: 11.6px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
+  /* Ligature glyphs extract as garbage in PDF text ("Flutter" → "Flu!er"), which breaks ATS parsing. */
+  * { font-variant-ligatures: none; font-feature-settings: 'liga' 0, 'clig' 0, 'dlig' 0, 'calt' 0; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  /* A4 at 96dpi */
+  .page { width: 794px; height: 1123px; padding: 50px 56px 44px; position: relative; overflow: hidden; }
+  .page + .page { page-break-before: always; }
+  .folio { position: absolute; left: 56px; right: 56px; bottom: 26px; display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 8.5px; letter-spacing: .06em; color: var(--ink-3); text-transform: uppercase; }
+
+  /* header */
+  .head { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; padding-bottom: 16px; border-bottom: 1.5px solid var(--ink); }
+  .name { font-size: 34px; font-weight: 600; letter-spacing: -.035em; line-height: 1; }
+  .role { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.2; margin-top: 6px; color: var(--ink-2); }
+  .contact { text-align: right; font-size: 10.4px; line-height: 1.6; color: var(--ink-2); }
+  .contact a { color: var(--ink); }
+  .contact .avail { color: var(--ink-3); }
+  .dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #2e8b57; margin-right: 5px; vertical-align: 1px; }
+
+  /* sections */
+  section { margin-top: 18px; }
+  h2 { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-weight: 500; font-size: 9.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink); margin-bottom: 9px; }
+  h2::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .summary { font-size: 12.2px; line-height: 1.55; color: var(--ink-2); }
+  .summary strong { color: var(--ink); font-weight: 500; }
+
+  .skills { display: grid; grid-template-columns: 1fr; }
+  .skills div { display: grid; grid-template-columns: 104px 1fr; gap: 10px; padding: 2.5px 0; border-top: 1px solid #ece8df; }
+  .skills div:last-child { border-bottom: 1px solid #ece8df; }
+  .skills dt { font-family: var(--mono); font-size: 8.8px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); padding-top: 2px; }
+  .skills dd { font-size: 10.8px; line-height: 1.4; }
+
+  .job { margin-top: 12px; }
+  .job:first-of-type { margin-top: 2px; }
+  .job__top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .job__title { font-size: 13.2px; font-weight: 600; letter-spacing: -.01em; }
+  .job__title span { font-weight: 400; color: var(--ink-2); }
+  .job__dates { font-family: var(--mono); font-size: 9.6px; color: var(--ink-2); white-space: nowrap; }
+  .job__meta { font-family: var(--serif); font-style: italic; font-size: 12.4px; color: var(--ink-3); margin: 1px 0 4px; }
+  .job li, .proj li { position: relative; padding-left: 13px; color: var(--ink-2); margin-top: 2.5px; }
+  .job li::before, .proj li::before { content: ''; position: absolute; left: 0; top: 7.5px; width: 6px; height: 1px; background: var(--accent); }
+  .job li b, .proj li b { font-weight: 500; color: var(--ink); }
+
+  .proj { margin-top: 10px; }
+  .proj__top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .proj__title { font-size: 13px; font-weight: 600; }
+  .proj__title span { font-weight: 400; color: var(--ink-2); }
+  .proj__link { font-family: var(--mono); font-size: 9.4px; color: var(--ink-2); }
+
+  .edu li { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 6px 0; border-top: 1px solid #ece8df; }
+  .edu li:last-child { border-bottom: 1px solid #ece8df; }
+  .edu b { font-weight: 500; }
+  .edu span { color: var(--ink-2); }
+  .edu time { font-family: var(--mono); font-size: 9.6px; color: var(--ink-2); }
+</style>
+</head>
+<body>
+
+<div class="page" id="p1">
+  <header class="head">
+    <div>
+      <h1 class="name">Divine Ajayi</h1>
+      <p class="role">Lead Mobile Developer — Flutter &amp; Dart</p>
+    </div>
+    <div class="contact">
+      <div class="avail"><span class="dot"></span>Akure, Nigeria · Open to remote &amp; international roles</div>
+      <div><a href="tel:+2347017688976">+234 701 768 8976</a> · <a href="mailto:divineajayi179@gmail.com">divineajayi179@gmail.com</a></div>
+      <div><a href="https://divine-ajayi.vercel.app">divine-ajayi.vercel.app</a> · <a href="https://linkedin.com/in/ajayi-divine">linkedin.com/in/ajayi-divine</a> · <a href="https://github.com/Justdivine7">github.com/Justdivine7</a></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Profile</h2>
+    <p class="summary">Lead mobile developer who takes Flutter apps from architecture to the App Store and Google Play. Builds complete product suites — customer, provider and admin apps across fintech procurement, pet care, delivery, agriculture and sport — with Clean Architecture, BLoC, real-time WebSocket features, payments and end-to-end release pipelines. <strong>Four apps live on both stores, with 10,000+ installs across Midddleman and Pawshauz.</strong> Currently leading mobile development at Midddleman Technologies while contracting for Ofast.</p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl class="skills">
+      <div><dt>Languages</dt><dd>Dart, Kotlin</dd></div>
+      <div><dt>Mobile</dt><dd>Flutter (iOS, Android, desktop), native Android</dd></div>
+      <div><dt>Architecture</dt><dd>Clean Architecture, repository pattern, BLoC, Riverpod, GetIt dependency injection</dd></div>
+      <div><dt>Data</dt><dd>REST APIs, Dio, WebSockets, Firebase, Hive, GetStorage; offline-first caching, session management</dd></div>
+      <div><dt>Payments</dt><dd>Paystack, Flutterwave, Monnify, Apple IAP</dd></div>
+      <div><dt>AI</dt><dd>OpenAI APIs including Realtime over WebRTC, Anthropic API, streaming chat</dd></div>
+      <div><dt>Testing</dt><dd>Unit and widget tests, QA handoff</dd></div>
+      <div><dt>Release</dt><dd>App Store Connect, TestFlight, Xcode signing and provisioning, Google Play Console, Gradle, Shorebird OTA</dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <article class="job">
+      <div class="job__top"><h3 class="job__title">Lead Mobile Developer <span>· Midddleman Technologies</span></h3><span class="job__dates">Sep 2026 — Present</span></div>
+      <p class="job__meta">Full-time · Midddleman customer &amp; agent apps · live on both stores · customer app 10k+ installs on Google Play</p>
+      <ul>
+        <li>Lead mobile development of the customer and agent apps on iOS and Android, with responsibility for technical direction and delivery.</li>
+        <li><b>Customer app:</b> own connectivity and offline handling, session-timeout handling, iOS push notifications and app-icon badging.</li>
+        <li><b>Agent app:</b> own the procurement chat, survey system, and the offline, session-security and caching layers.</li>
+        <li>Own the release pipeline end to end — App Store Connect, TestFlight, Google Play Console and Shorebird OTA patching — and validate every build with QA before release.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job__top"><h3 class="job__title">Flutter Mobile Engineer <span>· Ofast</span></h3><span class="job__dates">Sep 2025 — Present</span></div>
+      <p class="job__meta">Remote · Contract · Ofast Customer &amp; Rider · two-sided delivery platform · in internal testing</p>
+      <ul>
+        <li>Built the customer app from scratch and overhauled the rider app’s architecture, state management and UI; both apps are in internal testing ahead of launch.</li>
+        <li>Real-time rider order notifications over WebSockets for live delivery tracking.</li>
+        <li>Multi-category homepage (food, groceries, pharmacy, logistics) where each vendor section loads independently and lazily from a single backend endpoint; multi-vendor cart with one checkout.</li>
+        <li>Paystack payments with complete success, failure and cancellation handling.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job__top"><h3 class="job__title">Flutter Mobile Engineer <span>· Jamforte Technologies</span></h3><span class="job__dates">Jul 2025 — Jul 2026</span></div>
+      <p class="job__meta">Abuja, Nigeria · Full-time · Pawshauz Customer &amp; Merchant · live · Difamer Business · in internal testing</p>
+      <ul>
+        <li>Built <b>Pawshauz Customer</b> and <b>Pawshauz Merchant</b> from scratch as a two-sided pet-care marketplace and shipped both to production on iOS and Android — provisioning, code signing, App Store Connect and Play Console submissions; about 1,000 users combined.</li>
+        <li>Merchant app serves pet businesses and vets: earnings dashboard, inventory with TTL caching, order pipeline, consultation requests, emergency alerts and multi-clinic switching.</li>
+        <li>PawsAI: AI chat with persistent sessions, letter-by-letter streaming and graceful mid-response exit; real-time chat with optimistic UI.</li>
+        <li>Built <b>Difamer Business</b>, a farmer-facing app for listing produce for customers to browse and buy (in internal testing).</li>
+        <li>Established Clean Architecture across all codebases — BLoC, repository pattern over Dio, GetIt — decoupling UI from data sources for independent testing.</li>
+        <li>Flutterwave flows for subscription checkout, wallet top-up and withdrawal, with every success, failure and cancellation state covered.</li>
+      </ul>
+    </article>
+  </section>
+
+  <footer class="folio"><span>Divine Ajayi — CV</span><span>1 / 2</span></footer>
+</div>
+
+<div class="page" id="p2">
+  <section style="margin-top:0">
+    <h2>Experience, continued</h2>
+
+    <article class="job">
+      <div class="job__top"><h3 class="job__title">Flutter Engineering Mentor <span>· HNG Internship</span></h3><span class="job__dates">Apr — Jun 2026</span></div>
+      <p class="job__meta">Remote · Volunteer</p>
+      <ul>
+        <li>Mentored interns from 10 in the early stage to 4 in the final stage, with 1:1 technical guidance and code reviews toward production-quality Flutter.</li>
+        <li>Guided interns building the Telex desktop collaboration app — turning design specs into Flutter UI and unblocking state-management and architecture issues.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job__top"><h3 class="job__title">Flutter Mobile Engineer <span>· NextKick</span></h3><span class="job__dates">Aug — Nov 2025</span></div>
+      <p class="job__meta">Remote · Freelance · NextKick Player &amp; Admin · amateur football platform · in internal testing</p>
+      <ul>
+        <li>Built <b>NextKick Player</b>: training drills, uploading drills for admin review, team leaderboards, ongoing tournaments, and tournament registration with Monnify payments.</li>
+        <li>Built <b>NextKick Admin</b>, including review of player-submitted drills; delivered both apps independently from scratch, with real-time match updates over WebSockets.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job__top"><h3 class="job__title">Flutter Engineer <span>· HNG Internship</span></h3><span class="job__dates">Feb — Apr 2025</span></div>
+      <p class="job__meta">Remote · Internship</p>
+      <ul>
+        <li>Built desktop UI for Telex, a team collaboration tool, in a 35-engineer cross-functional team; finished as one of 19 finalists from the full cohort.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Personal projects</h2>
+    <article class="proj">
+      <div class="proj__top"><h3 class="proj__title">Shmood <span>· mood-based music discovery · in development</span></h3><a class="proj__link" href="https://divine-ajayi.vercel.app/work/shmood/">divine-ajayi.vercel.app/work/shmood</a></div>
+      <ul>
+        <li>Voice input through OpenAI’s Realtime API over WebRTC, plus chips and free text for describing a mood.</li>
+        <li>Fuzzy-match song resolver with an iTunes verification gate that stops hallucinated AI recommendations reaching the queue; Clean Architecture with BLoC.</li>
+      </ul>
+    </article>
+    <article class="proj">
+      <div class="proj__top"><h3 class="proj__title">Sanah <span>· AI nutrition tracking · in development</span></h3><a class="proj__link" href="https://divine-ajayi.vercel.app/work/sanah/">divine-ajayi.vercel.app/work/sanah</a></div>
+      <ul>
+        <li>Four-stage AI pipeline: vision, tiered nutrition resolution (Nigerian dish library, then USDA), deterministic health scoring and personalized explanation.</li>
+        <li>Firebase Cloud Functions, Firestore real-time listeners and the Anthropic API; daily targets from Mifflin-St Jeor BMR/TDEE.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <ul class="edu">
+      <li><div><b>BSc, Plant Science and Biotechnology</b> <span>· Adekunle Ajasin University, Ondo, Nigeria</span></div><time>2019 — 2023</time></li>
+      <li><div><b>Mobile App Development</b> <span>· Complete Computer Institute, Akure, Nigeria</span></div><time>Aug — Dec 2024</time></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Case studies</h2>
+    <p class="summary" style="font-size:11.4px">Product walkthroughs with screens, architecture and exactly which parts were mine: <a href="https://divine-ajayi.vercel.app/#work"><b style="font-weight:500;color:var(--ink)">divine-ajayi.vercel.app</b></a> — Midddleman, Midddleman Agent, Pawshauz, Shmood, Sanah and Ofxpress.</p>
+  </section>
+
+  <footer class="folio"><span>Divine Ajayi — CV</span><span>2 / 2</span></footer>
+</div>
+
+</body>
+</html>
