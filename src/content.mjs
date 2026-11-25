@@ -6,8 +6,10 @@ export const site = {
   url: 'https://divine-ajayi.vercel.app',
   name: 'Divine Ajayi',
   fullName: 'Ajayi Divine Iretomiwa',
-  role: 'Mobile Engineer — Flutter & Dart',
+  role: 'Mobile Engineer — Kotlin, Jetpack Compose, Flutter & Dart',
   title: 'Divine Ajayi — Mobile Engineer, Flutter & Dart',
+  // Used for link previews (Open Graph / Twitter); the browser-tab title stays short.
+  shareTitle: 'Divine Ajayi — Mobile Engineer, Kotlin, Jetpack Compose, Flutter & Dart',
   description:
     'Divine Ajayi is a Flutter and Dart mobile engineer who takes production apps from architecture to the App Store and Google Play — payments, real-time features, offline-ready data layers and release engineering.',
   location: 'Akure, Nigeria',

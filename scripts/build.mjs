@@ -85,7 +85,7 @@ function words(text, start = 0, em = false) {
 }
 
 // ---------------------------------------------------------------- shell
-function head({ title, description, path, ogImage = '/assets/og.png', jsonld }) {
+function head({ title, shareTitle = title, description, path, ogImage = '/assets/og.png', jsonld }) {
   const url = site.url + path;
   return `<!doctype html>
 <html lang="en">
@@ -99,14 +99,14 @@ function head({ title, description, path, ogImage = '/assets/og.png', jsonld }) 
 <meta name="theme-color" content="#F3F0E8">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(site.name)}">
-<meta property="og:title" content="${esc(title)}">
+<meta property="og:title" content="${esc(shareTitle)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
 <meta property="og:image" content="${site.url}${ogImage}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:title" content="${esc(shareTitle)}">
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${site.url}${ogImage}">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -199,8 +199,8 @@ function contactSection({ compact = false } = {}) {
 </section>`;
 }
 
-function page({ title, description, path, body, bodyClass = '', bodyStyle, jsonld }) {
-  return `${head({ title, description, path, jsonld })}
+function page({ title, shareTitle, description, path, body, bodyClass = '', bodyStyle, jsonld }) {
+  return `${head({ title, shareTitle, description, path, jsonld })}
 <body class="${bodyClass}"${bodyStyle ? ` style="${bodyStyle}"` : ''}>
 ${header()}
 ${body}
@@ -215,7 +215,7 @@ function hero() {
   const { w, h } = webpSize(poster);
   return `<section class="hero" id="top" aria-labelledby="hero-title">
   <div class="wrap hero__grid">
-    <p class="hero__eyebrow eyebrow" data-reveal><span>${esc(site.name)}</span><span class="hero__sep" aria-hidden="true"></span><span>Mobile Engineer — Flutter &amp; Dart</span></p>
+    <p class="hero__eyebrow eyebrow" data-reveal><span>${esc(site.name)}</span><span class="hero__sep" aria-hidden="true"></span><span>${esc(site.role)}</span></p>
     <h1 class="hero__title" id="hero-title" data-split>${words('Mobile products, engineered from architecture', 0)} ${words('to App Store.', 5, true)}</h1>
     <div class="hero__intro">
       <p class="hero__lede" data-reveal>I take production apps end to end — architecture, payments, real-time features, offline-ready data layers, and the release pipeline that gets them to real users on iOS and Android.</p>
@@ -616,7 +616,7 @@ ${contactSection()}
     sameAs: site.links.map((l) => l.href),
     knowsAbout: ['Flutter', 'Dart', 'Kotlin', 'Mobile architecture', 'iOS', 'Android'],
   };
-  return page({ title: site.title, description: site.description, path: '/', body, bodyClass: 'home', jsonld });
+  return page({ title: site.title, shareTitle: site.shareTitle, description: site.description, path: '/', body, bodyClass: 'home', jsonld });
 }
 
 // ---------------------------------------------------------------- case study
