@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://divine-ajayi.vercel.app/sitemap.xml
