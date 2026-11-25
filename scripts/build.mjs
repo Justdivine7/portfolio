@@ -76,10 +76,12 @@ const ICON = {
 
 // Headline words are wrapped so they can rise in sequence; spaces stay as text so it reads naturally.
 function words(text, start = 0, em = false) {
-  return text
+  const out = text
     .split(' ')
     .map((w, i) => `<span class="w"><span style="--i:${start + i}">${em ? `<em>${esc(w)}</em>` : esc(w)}</span></span>`)
     .join(' ');
+  // keep an emphasised phrase together on one line (wider screens only, see .em-group)
+  return em ? `<span class="em-group">${out}</span>` : out;
 }
 
 // ---------------------------------------------------------------- shell
@@ -111,7 +113,7 @@ function head({ title, description, path, ogImage = '/assets/og.png', jsonld }) 
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Tektur:wdth,wght@75..100,500..800&display=swap">
 <link rel="stylesheet" href="/assets/css/site.css?v=${VERSION}">
 <script>document.documentElement.classList.add('js')</script>
 <script src="/assets/js/site.js?v=${VERSION}" defer></script>
@@ -235,8 +237,8 @@ function hero() {
         .join('')}
     </div>
     <dl class="hero__facts" data-reveal-group>
-      <div data-reveal><dt>Status</dt><dd><span class="status-dot" aria-hidden="true"></span>${esc(site.availability)}</dd></div>
-      ${site.facts.map((f) => `<div data-reveal><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`).join('')}
+      <div data-reveal><dt>Status</dt><dd><span class="fact__n"><span class="status-dot" aria-hidden="true"></span>Open</span><span class="fact__v">to international roles</span></dd></div>
+      ${site.facts.map((f) => `<div data-reveal><dt>${esc(f.k)}</dt><dd><span class="fact__n">${esc(f.n)}</span> <span class="fact__v">${esc(f.v)}</span></dd></div>`).join('')}
     </dl>
   </div>
 </section>`;

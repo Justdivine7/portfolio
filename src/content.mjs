@@ -20,10 +20,11 @@ export const site = {
     { label: 'LinkedIn', handle: 'ajayi-divine', href: 'https://linkedin.com/in/ajayi-divine' },
     { label: 'GitHub', handle: 'Justdivine7', href: 'https://github.com/Justdivine7' },
   ],
+  // n = the highlighted figure (set in the tech display face), v = supporting text
   facts: [
-    { k: 'Live apps', v: '4 on the App Store & Google Play' },
-    { k: 'Installs', v: '10,000+ across Midddleman & Pawshauz' },
-    { k: 'Based in', v: 'Akure, Nigeria · Remote' },
+    { k: 'Live apps', n: '4', v: 'on the App Store & Google Play' },
+    { k: 'Installs', n: '10,000+', v: 'across Midddleman & Pawshauz' },
+    { k: 'Based in', n: 'Akure', v: 'Nigeria · open to remote' },
   ],
 };
 

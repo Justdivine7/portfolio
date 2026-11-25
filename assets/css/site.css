@@ -1200,3 +1200,68 @@ body.case-page.menu-open .site-header .menu-toggle { background: var(--ink); col
   .next-case__tag { font-size: 1.125rem; }
   .menu__list a { font-size: clamp(2rem, 9vw, 2.75rem); }
 }
+
+/* ==========================================================================
+   Tech display face (Tektur) — reserved for the things that matter most:
+   product names, headline figures, the wordmark and chapter numbers.
+   ========================================================================== */
+:root { --tech: 'Tektur', 'Eurostile', 'Bank Gothic', var(--sans); }
+
+.wordmark__mark { font-family: var(--tech); font-style: normal; font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.02em; font-stretch: 90%; }
+
+/* product names */
+.chapter__title, .case-hero__title, .next-case__name, .more__name {
+  font-family: var(--tech);
+  font-weight: 700;
+  font-stretch: 85%;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+.chapter__title { font-size: clamp(2.5rem, 5.8vw, 5.25rem); line-height: 0.9; }
+.chapter--posters .chapter__title { font-size: clamp(3.25rem, 11.5vw, 10.5rem); line-height: 0.84; font-stretch: 100%; letter-spacing: -0.02em; }
+.case-hero__title { font-size: clamp(3rem, 9.5vw, 9rem); line-height: 0.86; }
+.next-case__name { font-size: clamp(2.5rem, 7.5vw, 7rem); line-height: 0.9; }
+.more__name { font-weight: 600; font-size: clamp(1.625rem, 3vw, 2.5rem); letter-spacing: 0; }
+.chapter__title a { background-position: 0 100%; }
+
+/* chapter numbers */
+.chapter__index { font-family: var(--tech); font-weight: 700; font-size: 0.9375rem; letter-spacing: 0.02em; color: var(--c-accent); }
+.chapter--companion .chapter__index, .chapter--pipeline .chapter__index, .chapter--strip .chapter__index, .chapter--triptych .chapter__index { color: var(--c-fg); }
+
+/* headline figures */
+.hero__facts dd { display: grid; gap: 0.2rem; align-items: start; }
+.fact__n {
+  display: inline-flex; align-items: center;
+  font-family: var(--tech); font-weight: 700; font-stretch: 90%;
+  font-size: clamp(1.75rem, 2.6vw, 2.5rem); line-height: 1; letter-spacing: -0.01em;
+  text-transform: uppercase; font-variant-numeric: tabular-nums;
+}
+.fact__n .status-dot { width: 10px; height: 10px; margin-right: 0.45em; }
+.fact__v { font-weight: 400; font-size: 0.875rem; color: var(--ink-2); }
+
+@media (max-width: 599px) {
+  .chapter__title { font-size: clamp(2rem, 9.5vw, 2.5rem); }
+  .chapter--posters .chapter__title { font-size: clamp(2.625rem, 13vw, 3.375rem); }
+  .case-hero__title { font-size: clamp(2.375rem, 12vw, 3.125rem); }
+  .next-case__name { font-size: clamp(2rem, 10vw, 2.75rem); }
+  .more__name { font-size: 1.5rem; }
+  .fact__n { font-size: 1.625rem; }
+  .fact__v { font-size: 0.8125rem; }
+}
+
+/* Headline accents: the emphasised phrase of each display headline lands in the tech face.
+   (The serif italic stays for taglines, pull quotes and "next project" lines.) */
+.hero__title em, .section-title em, .contact__title em, .about__statement em {
+  font-family: var(--tech);
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 85%;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  font-size: 0.9em;
+}
+.hero__title em { color: var(--ink); }
+.section-title em { color: var(--ink); }
+.contact__title em { color: #e9b38f; }
+.about__statement em { font-size: 0.86em; color: var(--accent); }
+@media (min-width: 600px) { .em-group { white-space: nowrap; } }
