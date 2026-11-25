@@ -13,7 +13,7 @@
     $$('[data-reveal-group]').forEach((group) => {
       $$('[data-reveal]', group).forEach((el, i) => el.style.setProperty('--ri', Math.min(i, 8)));
     });
-    const targets = $$('[data-reveal], [data-split], .hero-shot');
+    const targets = $$('[data-reveal], [data-split]');
     if (!('IntersectionObserver' in window) || reduced.matches) {
       targets.forEach((el) => el.classList.add('is-in'));
       return;
@@ -331,6 +331,94 @@
     });
   }
 
+  /* ------------------------------------------------------------ live Flutter demo */
+  function initDemo() {
+    const root = $('[data-demo]');
+    if (!root) return;
+    const screen = $('[data-demo-screen]', root);
+    const run = $('[data-demo-run]', root);
+    const loading = $('[data-demo-loading]', root);
+    const src = root.dataset.src;
+    const phone = window.matchMedia('(max-width: 759px)');
+    const DESIGN_WIDTH = 390; // the app renders at a real phone width, then scales to fit the frame
+    let inline = null;
+    let sheet = null;
+
+    const fit = () => screen.style.setProperty('--demo-scale', (screen.clientWidth / DESIGN_WIDTH).toFixed(4));
+    if ('ResizeObserver' in window) new ResizeObserver(fit).observe(screen);
+    fit();
+
+    const makeFrame = () => {
+      const f = document.createElement('iframe');
+      f.src = src;
+      f.title = 'Relay — live Flutter demo';
+      f.setAttribute('allow', '');
+      return f;
+    };
+
+    // The demo posts "relay:ready" on Flutter's first frame.
+    // Escape pressed inside the frame arrives as "relay:escape".
+    window.addEventListener('message', (e) => {
+      if (e.origin !== location.origin || !e.data) return;
+      if (e.data.type === 'relay:escape') {
+        closeSheet();
+        return;
+      }
+      if (e.data.type !== 'relay:ready') return;
+      $$('[data-demo-loading]').forEach((l) => (l.hidden = true));
+      root.classList.add('is-ready');
+    });
+
+    const startInline = () => {
+      if (inline) return;
+      root.classList.add('is-running');
+      loading.hidden = false;
+      inline = makeFrame();
+      screen.appendChild(inline);
+      fit();
+      // Safety net in case the ready message never arrives.
+      inline.addEventListener('load', () => setTimeout(() => (loading.hidden = true), 6000), { once: true });
+      inline.focus({ preventScroll: true });
+    };
+
+    const onKey = (e) => {
+      if (e.key === 'Escape') closeSheet();
+    };
+
+    function closeSheet() {
+      if (!sheet) return;
+      const closing = sheet;
+      sheet = null;
+      closing.classList.remove('is-open');
+      document.body.classList.remove('menu-open');
+      document.removeEventListener('keydown', onKey);
+      setTimeout(() => closing.parentNode && closing.parentNode.removeChild(closing), reduced.matches ? 0 : 320);
+      run.focus({ preventScroll: true });
+    }
+
+    const openSheet = () => {
+      if (sheet) return;
+      sheet = document.createElement('div');
+      sheet.className = 'demo-sheet';
+      sheet.setAttribute('role', 'dialog');
+      sheet.setAttribute('aria-modal', 'true');
+      sheet.setAttribute('aria-label', 'Relay — live Flutter demo');
+      sheet.innerHTML =
+        '<div class="demo-sheet__bar"><span><span class="status-dot" aria-hidden="true"></span>Live Flutter build</span>' +
+        '<button class="demo-sheet__close" type="button">Close</button></div>' +
+        '<div class="demo-sheet__body"><div class="demo__loading" data-demo-loading><span class="demo__bar"></span><span>Starting the Flutter engine…</span></div></div>';
+      $('.demo-sheet__body', sheet).appendChild(makeFrame());
+      $('.demo-sheet__close', sheet).addEventListener('click', closeSheet);
+      document.body.appendChild(sheet);
+      document.body.classList.add('menu-open');
+      document.addEventListener('keydown', onKey);
+      requestAnimationFrame(() => sheet && sheet.classList.add('is-open'));
+      $('.demo-sheet__close', sheet).focus({ preventScroll: true });
+    };
+
+    run.addEventListener('click', () => (phone.matches ? openSheet() : startInline()));
+  }
+
   const start = () => {
     initReveals();
     initParallax();
@@ -341,6 +429,7 @@
     initCopy();
     initClock();
     initToc();
+    initDemo();
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();

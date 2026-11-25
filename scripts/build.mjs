@@ -85,7 +85,7 @@ function words(text, start = 0, em = false) {
 }
 
 // ---------------------------------------------------------------- shell
-function head({ title, description, path, ogImage = '/assets/og.png', jsonld }) {
+function head({ title, shareTitle = title, description, path, ogImage = '/assets/og.png', jsonld }) {
   const url = site.url + path;
   return `<!doctype html>
 <html lang="en">
@@ -99,14 +99,14 @@ function head({ title, description, path, ogImage = '/assets/og.png', jsonld }) 
 <meta name="theme-color" content="#F3F0E8">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(site.name)}">
-<meta property="og:title" content="${esc(title)}">
+<meta property="og:title" content="${esc(shareTitle)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
 <meta property="og:image" content="${site.url}${ogImage}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:title" content="${esc(shareTitle)}">
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${site.url}${ogImage}">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -199,8 +199,8 @@ function contactSection({ compact = false } = {}) {
 </section>`;
 }
 
-function page({ title, description, path, body, bodyClass = '', bodyStyle, jsonld }) {
-  return `${head({ title, description, path, jsonld })}
+function page({ title, shareTitle, description, path, body, bodyClass = '', bodyStyle, jsonld }) {
+  return `${head({ title, shareTitle, description, path, jsonld })}
 <body class="${bodyClass}"${bodyStyle ? ` style="${bodyStyle}"` : ''}>
 ${header()}
 ${body}
@@ -211,15 +211,11 @@ ${body}
 
 // ---------------------------------------------------------------- homepage parts
 function hero() {
-  const [mid, sha, san] = [projects[0], projects[3], projects[4]];
-  const stack = [
-    { p: san, s: san.screens[0].items[0], cls: 'hero-shot hero-shot--back-r', par: '-0.05' },
-    { p: mid, s: mid.screens[0].items[1], cls: 'hero-shot hero-shot--back-l', par: '0.04' },
-    { p: sha, s: sha.screens[2].items[0], cls: 'hero-shot hero-shot--front', par: '-0.02' },
-  ];
+  const poster = 'assets/relay-poster.webp';
+  const { w, h } = webpSize(poster);
   return `<section class="hero" id="top" aria-labelledby="hero-title">
   <div class="wrap hero__grid">
-    <p class="hero__eyebrow eyebrow" data-reveal><span>${esc(site.name)}</span><span class="hero__sep" aria-hidden="true"></span><span>Mobile Engineer — Flutter &amp; Dart</span></p>
+    <p class="hero__eyebrow eyebrow" data-reveal><span>${esc(site.name)}</span><span class="hero__sep" aria-hidden="true"></span><span>${esc(site.role)}</span></p>
     <h1 class="hero__title" id="hero-title" data-split>${words('Mobile products, engineered from architecture', 0)} ${words('to App Store.', 5, true)}</h1>
     <div class="hero__intro">
       <p class="hero__lede" data-reveal>I take production apps end to end — architecture, payments, real-time features, offline-ready data layers, and the release pipeline that gets them to real users on iOS and Android.</p>
@@ -228,13 +224,27 @@ function hero() {
         <a class="btn btn--line" href="${site.resume}" target="_blank" rel="noopener">Resume ${ICON.out}</a>
       </div>
     </div>
-    <div class="hero__stage">
-      ${stack
-        .map(
-          ({ p, s, cls, par }, i) =>
-            `<a class="${cls}" href="/work/${p.slug}/" data-parallax="${par}" style="--d:${i}"><span class="visually-hidden">${esc(p.name)} case study</span>${shot(p.kind, s, { eager: true, priority: i === 2 })}<span class="hero-shot__tag" aria-hidden="true">${esc(p.shortName || p.name)}</span></a>`,
-        )
-        .join('')}
+    <div class="hero__stage hero__stage--demo">
+      <figure class="demo" data-demo data-src="/assets/demo/">
+        <div class="demo__device" data-reveal>
+          <div class="demo__screen" data-demo-screen>
+            <img class="demo__poster" src="/${poster}" width="${w}" height="${h}" alt="Relay, a demo Flutter app: an orders list with sync status, a live event console and a developer menu button" fetchpriority="high" decoding="async">
+            <div class="demo__cta" data-demo-cta>
+              <button class="demo__run" type="button" data-demo-run>
+                <span class="demo__play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7.5-4.5z" fill="currentColor"/></svg></span>
+                <span>Run the live Flutter build</span>
+              </button>
+              <span class="demo__meta">Flutter → WebAssembly · ~3 MB</span>
+            </div>
+            <div class="demo__loading" data-demo-loading hidden><span class="demo__bar"></span><span>Starting the Flutter engine…</span></div>
+          </div>
+        </div>
+        <figcaption class="demo__caption" data-reveal>
+          <span class="demo__live"><span class="status-dot" aria-hidden="true"></span>Live demo</span>
+          A real Flutter app I built for this site. Open its developer menu, go offline or make the network flaky, and try to break it.
+          <span class="demo__links"><a class="textlink" href="https://github.com/Justdivine7/portfolio/tree/main/demo" target="_blank" rel="noopener">View the source ${ICON.out}</a><a class="textlink" href="/assets/demo/" target="_blank" rel="noopener" data-demo-popout>Open full screen ${ICON.out}</a></span>
+        </figcaption>
+      </figure>
     </div>
     <dl class="hero__facts" data-reveal-group>
       <div data-reveal><dt>Status</dt><dd><span class="fact__n"><span class="status-dot" aria-hidden="true"></span>Open</span><span class="fact__v">to international roles</span></dd></div>
@@ -551,7 +561,7 @@ function aboutSection() {
       <p class="eyebrow" data-reveal>About</p>
       <h2 class="about__statement" id="about-title" data-split>${words('I care most about the parts of an app', 0)} ${words('nobody screenshots', 8, true)} ${words('— the architecture, the failure states, the release.', 10)}</h2>
       <div class="about__bio" data-reveal-group>
-        <p data-reveal>I’m a Flutter and Dart engineer based in Akure, Nigeria. Today I lead mobile development at Midddleman Technologies, where I own the release pipeline and the layers that keep the customer and agent apps dependable. Before that I was the sole mobile engineer at Jamforte Technologies, shipping Pawshauz and Difamer, and I’ve built delivery and sports apps on contract. In 2026 I went back to the HNG Internship as a Flutter mentor.</p>
+        <p data-reveal>I’m a mobile engineer based in Akure, Nigeria, working in Flutter, Dart and Kotlin. Today I lead mobile development at Midddleman Technologies, where I own the release pipeline and the layers that keep the customer and agent apps dependable. Before that I was the sole mobile engineer at Jamforte Technologies, shipping Pawshauz and Difamer, and I’ve built delivery and sports apps on contract. In 2026 I went back to the HNG Internship as a Flutter mentor.</p>
         <p data-reveal>Alongside that I build AI-native products — Shmood and Sanah — to push on what a mobile app can do with voice, vision and language models, without letting a model make things up.</p>
       </div>
     </div>
@@ -606,7 +616,7 @@ ${contactSection()}
     sameAs: site.links.map((l) => l.href),
     knowsAbout: ['Flutter', 'Dart', 'Kotlin', 'Mobile architecture', 'iOS', 'Android'],
   };
-  return page({ title: site.title, description: site.description, path: '/', body, bodyClass: 'home', jsonld });
+  return page({ title: site.title, shareTitle: site.shareTitle, description: site.description, path: '/', body, bodyClass: 'home', jsonld });
 }
 
 // ---------------------------------------------------------------- case study
