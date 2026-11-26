@@ -18,6 +18,12 @@ export const site = {
   email: 'divineajayi179@gmail.com',
   phone: { display: '+234 701 768 8976', href: 'tel:+2347017688976' },
   resume: '/divine-ajayi-cv.pdf',
+  // About-section portrait: 4:5 black-and-white crop, exported at two widths
+  portrait: {
+    src: 'assets/portrait/divine-ajayi-480.webp',
+    srcLarge: 'assets/portrait/divine-ajayi-864.webp',
+    alt: 'Black-and-white studio portrait of Divine Ajayi in a white T-shirt',
+  },
   links: [
     { label: 'LinkedIn', handle: 'ajayi-divine', href: 'https://linkedin.com/in/ajayi-divine' },
     { label: 'GitHub', handle: 'Justdivine7', href: 'https://github.com/Justdivine7' },
