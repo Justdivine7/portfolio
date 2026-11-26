@@ -554,12 +554,29 @@ function experienceSection() {
 </section>`;
 }
 
+function portrait() {
+  const p = site.portrait;
+  const { w, h } = webpSize(p.src);
+  const large = webpSize(p.srcLarge);
+  return `<figure class="about__portrait" data-reveal><img ${attrs({
+    src: '/' + p.src,
+    srcset: `/${p.src} ${w}w, /${p.srcLarge} ${large.w}w`,
+    sizes: '(max-width: 899px) 240px, 22vw',
+    alt: p.alt,
+    width: w,
+    height: h,
+    loading: 'lazy',
+    decoding: 'async',
+  })}></figure>`;
+}
+
 function aboutSection() {
   return `<section class="about" id="about" aria-labelledby="about-title">
   <div class="wrap">
     <div class="about__grid">
       <p class="eyebrow" data-reveal>About</p>
       <h2 class="about__statement" id="about-title" data-split>${words('I care most about the parts of an app', 0)} ${words('nobody screenshots', 8, true)} ${words('— the architecture, the failure states, the release.', 10)}</h2>
+      ${portrait()}
       <div class="about__bio" data-reveal-group>
         <p data-reveal>I’m a mobile engineer in Akure, Nigeria, working in Flutter, Dart and Kotlin. I lead mobile at Midddleman Technologies; before that I was the sole mobile engineer at Jamforte Technologies.</p>
         <p data-reveal>On the side I build AI products, Shmood and Sanah, without letting a model make things up.</p>
