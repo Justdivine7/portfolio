@@ -25,7 +25,7 @@ export const site = {
   // n = the highlighted figure (set in the tech display face), v = supporting text
   facts: [
     { k: 'Live apps', n: '4', v: 'on the App Store & Google Play' },
-    { k: 'Installs', n: '10,000+', v: 'across Midddleman & Pawshauz' },
+    { k: 'Installs', n: '10,000+', v: 'for Midddleman on Google Play' },
     { k: 'Based in', n: 'Akure', v: 'Nigeria · open to remote' },
   ],
 };
@@ -42,7 +42,7 @@ export const projects = [
     category: 'Fintech · Procurement · Marketplace',
     tagline: 'China sourcing for Nigerian importers.',
     summary:
-      'Importers fund a naira wallet, buy RMB to pay suppliers on Alipay and WeChat, browse 1688 in local currency and hire procurement agents in China — in one app.',
+      'A naira wallet, RMB payments to suppliers on Alipay and WeChat, a 1688 marketplace and procurement agents in China — in one app.',
     layout: 'posters',
     kind: 'poster',
     theme: { bg: '#0F2419', fg: '#EEF2E6', muted: '#A9B8A4', accent: '#B9E35C', panel: '#183527' },
@@ -57,42 +57,33 @@ export const projects = [
       { label: 'App Store', href: 'https://apps.apple.com/us/app/midddleman/id6744252874' },
     ],
     owned: [
-      'Connectivity and offline layer, so the app stays usable on unreliable networks',
-      'Session-timeout handling',
-      'iOS push notifications and app-icon badging',
-      'Release configuration for the App Store and Play Store',
+      'Connectivity and offline layer for unreliable networks',
+      'Session timeouts, iOS push and app-icon badging',
+      'Release configuration for both stores',
     ],
     stack: ['Flutter', 'Dart', 'Offline handling', 'Session management', 'iOS push', 'Shorebird OTA'],
     overview: [
-      'Midddleman brings the moving parts of importing from China into one app. Importers fund a naira wallet, buy RMB at the day’s rate, pay suppliers on Alipay and WeChat, browse products from 1688 priced in local currency, and hire procurement agents on the ground in China.',
+      'Paying a supplier in China, finding products and getting someone to source them usually means juggling several services. Midddleman puts the wallet, the currency purchase, the 1688 marketplace and the agent network in one app.',
     ],
-    problem:
-      'Paying a supplier in China, finding products and getting someone to source them usually means juggling several services. Midddleman puts the wallet, the currency purchase, the marketplace and the agent network in one place — which means the app has to be dependable, because it sits on top of people’s money and orders.',
+    problem: 'It sits on top of people’s money and orders, so it has to be dependable.',
     team:
-      'Midddleman is built by a team. I lead mobile development of the customer and agent apps on iOS and Android, with responsibility for technical direction and delivery, and I work with the QA team to validate builds before release. The work listed here is the part I personally own.',
+      'Midddleman is a team product. I lead mobile development of the customer and agent apps, set technical direction and work with QA to validate builds. What follows is the part I personally own.',
     challenges: [
       {
         title: 'Staying usable on unreliable networks',
-        body: 'Importers rely on the app when the connection doesn’t. I built the connectivity and offline layer that keeps the app usable on unreliable networks instead of failing on every dropped request.',
+        body: 'I built the connectivity and offline layer that keeps the app usable instead of failing on every dropped request.',
       },
       {
-        title: 'Sessions that respect money',
-        body: 'A wallet app has to be deliberate about how long a session stays open. I implemented the session-timeout handling in the customer app.',
-      },
-      {
-        title: 'Reaching people outside the app',
-        body: 'I implemented iOS push notifications and app-icon badging, so updates reach users when the app isn’t open.',
+        title: 'Sessions and notifications',
+        body: 'Session-timeout handling for a wallet app, plus iOS push notifications and app-icon badging so updates reach people outside the app.',
       },
       {
         title: 'Owning the release pipeline',
-        body: 'I own release configuration and the end-to-end pipeline across App Store Connect, TestFlight, Google Play Console and Shorebird OTA patching.',
+        body: 'Release configuration and the pipeline across App Store Connect, TestFlight, Play Console and Shorebird OTA patches.',
       },
     ],
     architecture: [
       { k: 'Client', v: 'Flutter & Dart, shipped to iOS and Android' },
-      { k: 'Resilience', v: 'Connectivity monitoring and offline handling' },
-      { k: 'Security', v: 'Session-timeout handling' },
-      { k: 'Messaging', v: 'iOS push notifications and badging' },
       { k: 'Delivery', v: 'App Store Connect, TestFlight, Play Console, Shorebird OTA' },
     ],
     screens: [
@@ -113,7 +104,7 @@ export const projects = [
         ],
       },
     ],
-    outcome: ['Live on the App Store and Google Play.', '10k+ installs on Google Play.'],
+    outcome: ['Live on both stores, with 10,000+ installs on Google Play.'],
   },
 
   {
@@ -122,7 +113,7 @@ export const projects = [
     category: 'Procurement · Business operations',
     tagline: 'The other side of the marketplace.',
     summary:
-      'The companion app for procurement agents in China who fulfil Midddleman orders: accept or decline requests, follow each order through quoting, payment and sourcing, and withdraw earnings.',
+      'Where procurement agents in China run their side of Midddleman: accept orders, move them from quote to sourcing, and withdraw earnings.',
     layout: 'companion',
     kind: 'poster',
     theme: { bg: '#E4EBD2', fg: '#13241A', muted: '#4D5E4F', accent: '#2F6B3E', panel: '#D5E1BC' },
@@ -139,40 +130,31 @@ export const projects = [
     owned: [
       'Procurement chat',
       'Survey system',
-      'Offline, session-security and caching layers',
-      'Release engineering across the App Store and Play Store',
+      'Offline, caching and session-security layers',
     ],
     stack: ['Flutter', 'Dart', 'Chat', 'Offline-first', 'Caching', 'Session security'],
     overview: [
-      'Every Midddleman procurement order is fulfilled by an agent in China. The Agent app is where they work: accept or decline incoming requests, move each order through quoting, awaiting payment and sourcing, chat about each order, and withdraw what they earn to a bank account or Alipay.',
+      'Every Midddleman order is fulfilled by an agent in China. In this app they accept or decline requests, move each order through quoting, awaiting payment and sourcing, and withdraw earnings to a bank account or Alipay.',
     ],
-    problem:
-      'Agents are running a business from their phone. They need to see what’s pending, respond quickly, keep a conversation going around each order, and trust that their earnings and account are secure — wherever they are and whatever the connection.',
+    problem: 'Agents run a business from their phone, whatever the connection.',
     team:
-      'Like the customer app, the Agent app is a team product. As Lead Mobile Developer I set direction for both apps; the features below are the ones I own in the Agent app.',
+      'A team product. I set mobile direction for both Midddleman apps; below is what I own in this one.',
     challenges: [
       {
         title: 'Conversations around every order',
-        body: 'I built the procurement chat, so the conversation about an order lives alongside the order itself.',
-      },
-      {
-        title: 'Hearing from agents',
-        body: 'I built the in-app survey system.',
+        body: 'I built the procurement chat, so the conversation about an order lives alongside the order. I also built the in-app survey system.',
       },
       {
         title: 'Offline, caching and session security',
-        body: 'I own the offline, session-security and caching layers — the parts that decide what the app does when the network drops, what it remembers, and how long a signed-in session is trusted.',
+        body: 'The layers that decide what the app does when the network drops, what it remembers, and how long a signed-in session is trusted.',
       },
       {
         title: 'Release engineering',
-        body: 'I ship the app to both stores, owning the pipeline across App Store Connect, TestFlight, Google Play Console and Shorebird OTA patching.',
+        body: 'I ship it to both stores through App Store Connect, TestFlight, Play Console and Shorebird OTA patches.',
       },
     ],
     architecture: [
       { k: 'Client', v: 'Flutter & Dart, shipped to iOS and Android' },
-      { k: 'Data', v: 'Caching layer with offline-first behaviour' },
-      { k: 'Security', v: 'Session-security layer' },
-      { k: 'Features', v: 'Procurement chat, survey system' },
       { k: 'Delivery', v: 'App Store Connect, TestFlight, Play Console, Shorebird OTA' },
     ],
     screens: [
@@ -192,7 +174,7 @@ export const projects = [
         ],
       },
     ],
-    outcome: ['Live on the App Store and Google Play.'],
+    outcome: ['Live on both stores.'],
   },
 
   {
@@ -201,7 +183,7 @@ export const projects = [
     category: 'Pet services marketplace',
     tagline: 'Two apps, one pet-care marketplace.',
     summary:
-      'A two-sided pet-care marketplace: a customer app for pet owners and a merchant app that also serves vets. Built from scratch as the sole mobile engineer at Jamforte Technologies and shipped to both stores — about 1,000 users combined.',
+      'A customer app for pet owners and a merchant app that vets use too. I built both from scratch as the sole mobile engineer.',
     layout: 'triptych',
     kind: 'device',
     theme: { bg: '#F2E6D6', fg: '#1E1712', muted: '#6C5D50', accent: '#D9581E', panel: '#E8D7C2' },
@@ -218,49 +200,44 @@ export const projects = [
       { label: 'App Store · Merchant', href: 'https://apps.apple.com/ng/app/pawshauz-business/id6768560243' },
     ],
     owned: [
-      'PawsAI — an in-app AI pet-care assistant with letter-by-letter streaming, persistent sessions and graceful mid-response exit',
-      'Merchant dashboard with earnings chart, inventory management with TTL caching, and the full order pipeline',
-      'Vet side of the merchant app: consultation requests, emergency alerts and multi-clinic switching',
-      'Real-time chat with optimistic UI, multi-image bubbles and date separators',
-      'The full iOS and Android release pipeline',
+      'PawsAI, a streaming pet-care assistant',
+      'Merchant dashboard, inventory and orders',
+      'Vet consultations across multiple clinics',
+      'Chat with optimistic UI',
+      'Releases to both stores',
     ],
     stack: ['Flutter', 'BLoC', 'Flutterwave', 'Google Places SDK', 'OneSignal', 'Shorebird', 'App Store Connect', 'Play Console'],
     overview: [
-      'Pawshauz connects pet owners with the businesses and vets that look after their pets. It is two products: a customer app for shopping, finding vets and asking PawsAI for advice, and a merchant app for running a pet business — which vets also use to handle consultations.',
-      'I was the sole mobile engineer at Jamforte Technologies, so the mobile side — architecture, features and releases — was mine end to end.',
+      'Pawshauz connects pet owners with the businesses and vets that look after their pets. The customer app is for shopping, finding vets and asking PawsAI; the merchant app runs a pet business, and vets use it for consultations.',
     ],
-    problem:
-      'A two-sided marketplace has to work for every side at once. Customers need to find help and products quickly; merchants need to see earnings, keep inventory accurate and move orders along; vets need to respond to consultations and emergencies — potentially across more than one clinic.',
+    problem: 'Customers, merchants and vets all need it to work at once.',
     team:
-      'I built Pawshauz Customer and Pawshauz Merchant from scratch as the sole mobile engineer at Jamforte Technologies, working against the company’s backend, and shipped both to production through full release pipelines.',
+      'I was the sole mobile engineer at Jamforte Technologies. Architecture, features and releases for both apps were mine, built against the company’s backend.',
     challenges: [
       {
         title: 'An AI assistant that behaves like a product feature',
-        body: 'PawsAI streams responses as they’re generated, persists the session so conversations survive, and handles users leaving mid-response cleanly.',
+        body: 'PawsAI streams responses letter by letter, persists the session so conversations survive, and exits cleanly when a user leaves mid-response.',
       },
       {
         title: 'Inventory that stays fresh without hammering the API',
-        body: 'The merchant dashboard combines an earnings chart, inventory management backed by TTL caching, and the full order pipeline.',
+        body: 'The merchant dashboard pairs an earnings chart and the order pipeline with inventory backed by TTL caching.',
       },
       {
         title: 'Vets who work across clinics',
-        body: 'Vets work inside the merchant app: consultation requests and emergency alerts, with switching between multiple clinics.',
+        body: 'Consultation requests and emergency alerts inside the merchant app, with switching between clinics.',
       },
       {
         title: 'Chat that feels instant',
-        body: 'In-app chat uses optimistic UI so messages appear immediately, with multi-image bubbles and date separators.',
+        body: 'Optimistic UI so messages appear immediately, with multi-image bubbles.',
       },
       {
         title: 'Payments and releases',
-        body: 'Flutterwave flows cover subscription checkout, wallet top-up and in-app withdrawal. I ran the full release pipeline: provisioning, code signing, TestFlight and the Play Store.',
+        body: 'Flutterwave subscriptions, wallet top-up and withdrawal, and the release pipeline from code signing to TestFlight and the Play Store.',
       },
     ],
     architecture: [
       { k: 'Structure', v: 'Clean Architecture — BLoC, repository pattern over Dio, GetIt injection' },
-      { k: 'Payments', v: 'Flutterwave — subscriptions, wallet top-up, withdrawal' },
-      { k: 'Location', v: 'Google Places SDK' },
-      { k: 'Notifications', v: 'OneSignal' },
-      { k: 'AI', v: 'PawsAI with streaming responses and session persistence' },
+      { k: 'Services', v: 'Flutterwave, Google Places SDK, OneSignal' },
       { k: 'Delivery', v: 'Shorebird, App Store Connect, Google Play Console' },
     ],
     screens: [
@@ -290,8 +267,7 @@ export const projects = [
       },
     ],
     outcome: [
-      'Customer and merchant apps live on Google Play and the App Store.',
-      'About 1,000 users across both apps.',
+      'Both apps live on both stores, with about 1,000 users.',
     ],
   },
 
@@ -301,7 +277,7 @@ export const projects = [
     category: 'AI · Music discovery',
     tagline: 'Describe your mood. Get a queue built for it.',
     summary:
-      'You describe what’s actually going on with you — by text or voice — and Shmood builds a queue that fits the feeling instead of just tagging a genre.',
+      'Say how you feel, by text or voice, and get a queue that fits the feeling rather than a genre.',
     layout: 'spotlight',
     kind: 'device',
     theme: { bg: '#0A0E18', fg: '#E8EAF2', muted: '#9298AE', accent: '#9DB0FF', panel: '#131A2B' },
@@ -313,43 +289,35 @@ export const projects = [
     platforms: 'iOS & Android',
     links: [{ label: 'Download APK', href: 'https://drive.google.com/file/d/1fVji1VodpwjVkbkJnxmXP4C5mXJMI1pf/view?usp=drive_link' }],
     owned: [
-      'Mood elicitation through quick-select chips, free text, or live voice over WebRTC via OpenAI’s Realtime API',
-      'A music resolver that catches hallucinated song recommendations before they reach the queue',
-      '“Moments” — revisit and replay mixes generated from earlier check-ins',
-      'Fixed an AVAudioSession / ReplayKit conflict during an audio-layer swap',
+      'Live voice input over WebRTC',
+      'A resolver that blocks hallucinated songs',
+      'Moments: replay past check-ins',
     ],
     stack: ['Flutter', 'BLoC', 'Clean Architecture', 'OpenAI Realtime API', 'WebRTC', 'iTunes Search API'],
     overview: [
-      'Shmood is mood-based music discovery. Instead of picking a genre or a playlist, you tell it what’s actually going on with you — tap a chip, type a sentence, or just talk — and it builds a queue around that feeling.',
-      'It’s a personal portfolio project, built alongside full-time engineering work, and the place where I push on AI-native interaction.',
+      'Most music apps make you translate a feeling into a genre, artist or playlist. Shmood takes the feeling directly: tap a chip, type a sentence or just talk, and it builds a queue around it.',
     ],
-    problem:
-      'Most music apps ask you to translate a feeling into a genre, artist or playlist. Shmood takes the feeling directly. The hard part is that language models will confidently recommend songs that don’t exist — so every suggestion has to be checked before it plays.',
-    team: 'Shmood is a personal portfolio project that I build on my own, alongside full-time engineering work.',
+    problem: 'Language models confidently recommend songs that don’t exist, so every suggestion has to be checked before it plays.',
+    team: 'A personal project I build on my own, alongside full-time work. It’s where I push on AI-native interaction.',
     challenges: [
       {
         title: 'Talking to the app, live',
-        body: 'Mood input works three ways: quick-select chips, free text, or live voice streamed over WebRTC through OpenAI’s Realtime API.',
+        body: 'Quick-select chips, free text, or live voice streamed over WebRTC through OpenAI’s Realtime API.',
       },
       {
         title: 'Never queue a song that doesn’t exist',
-        body: 'The music resolver uses normalized containment matching with edit-distance-1 fuzzy tolerance, gated by an iTunes Search verification check, so hallucinated recommendations are caught before they hit the queue.',
+        body: 'Normalized containment matching with edit-distance-1 tolerance, gated by an iTunes Search check, catches hallucinated recommendations before they reach the queue.',
       },
       {
         title: 'Architecture that paid for itself',
-        body: 'Swapping the audio layer surfaced an AVAudioSession / ReplayKit conflict. Because of the Clean Architecture boundaries, the problem was isolated to one layer and fixed there.',
-      },
-      {
-        title: 'Moments',
-        body: 'Every check-in becomes a Moment you can revisit, replaying the mix generated for how you felt then.',
+        body: 'Swapping the audio layer surfaced an AVAudioSession / ReplayKit conflict. The Clean Architecture boundaries kept the problem, and the fix, inside one layer.',
       },
     ],
     architecture: [
       { k: 'Structure', v: 'Clean Architecture with BLoC' },
       { k: 'Voice', v: 'OpenAI Realtime API over WebRTC' },
       { k: 'Verification', v: 'iTunes Search API' },
-      { k: 'Matching', v: 'Normalized containment, edit-distance-1 tolerance' },
-      { k: 'Playback', v: 'Now playing with synced lyrics and offset control' },
+      { k: 'Playback', v: 'Synced lyrics with offset control' },
     ],
     screens: [
       {
@@ -376,7 +344,7 @@ export const projects = [
         ],
       },
     ],
-    outcome: ['In development, with an Android build available to download.'],
+    outcome: ['In development. The Android build is available to download.'],
   },
 
   {
@@ -385,7 +353,7 @@ export const projects = [
     category: 'AI · Nutrition',
     tagline: 'Snap a plate. Understand it.',
     summary:
-      'Photo in, nutrition out: snap a plate, confirm what the AI detected, and get a deterministic health score with a personalized explanation of why — not just a calorie count.',
+      'Snap a plate, confirm what the AI saw, and get a health score with the reasons behind it, not just a calorie count.',
     layout: 'pipeline',
     kind: 'device',
     theme: { bg: '#EDE0CF', fg: '#23170F', muted: '#6E5A49', accent: '#C2501F', panel: '#E2D0BA' },
@@ -397,41 +365,30 @@ export const projects = [
     platforms: 'iOS & Android',
     links: [{ label: 'Download APK', href: 'https://drive.google.com/file/d/1p7HHtEEyHIUmA6oTO6kjm90uzz_F2qFX/view?usp=drive_link' }],
     pipeline: [
-      { k: 'See', v: 'Vision extracts what’s on the plate.' },
-      { k: 'Resolve', v: 'A tiered resolver checks a Nigerian dish library, then USDA, then AI estimation.' },
-      { k: 'Score', v: 'A deterministic scorer computes the health score.' },
-      { k: 'Explain', v: 'A final stage writes the personalized explanation.' },
+      { k: 'See', v: 'Vision reads the plate.' },
+      { k: 'Resolve', v: 'Nigerian dish library, then USDA, then AI estimate.' },
+      { k: 'Score', v: 'Deterministic, so the same meal scores the same.' },
+      { k: 'Explain', v: 'The model explains the score; it doesn’t invent it.' },
     ],
     owned: [
-      'A four-stage AI pipeline: vision, tiered nutrition resolution, deterministic scoring, personalized explanation',
-      'Tiered nutrition lookup — West African Food Composition Table first, USDA underneath',
-      'Daily calorie and macro targets via Mifflin-St Jeor BMR/TDEE, tailored to the user’s goal',
-      'Real-time Firestore listeners for the calorie ring and recent meals',
+      'A four-stage AI pipeline',
+      'Nigerian-first nutrition data',
+      'Personal calorie and macro targets',
     ],
     stack: ['Flutter', 'BLoC', 'Clean Architecture', 'Firebase Cloud Functions', 'Firestore', 'Anthropic API'],
     overview: [
-      'Sanah is a food and nutrition tracker. You photograph a meal, confirm or edit what the AI detected, and get a health score with a personalized explanation of why it scored that way.',
-      'It resolves nutrition against a dedicated Nigerian dish library first and falls back to USDA’s global database — accurate for Nigerian meals without being locked to them.',
+      'Nutrition data is usually built around Western foods, which leaves Nigerian dishes poorly covered. Sanah resolves meals against a Nigerian dish library first, with USDA’s global database underneath.',
     ],
-    problem:
-      'Nutrition data is often built around Western foods, which leaves Nigerian dishes poorly covered. And a calorie number on its own doesn’t tell you whether a meal was good for you or what to change.',
-    team: 'Sanah is a personal portfolio project that I build on my own.',
+    problem: 'A calorie number alone doesn’t tell you whether a meal was good for you, or what to change.',
+    team: 'A personal project I build on my own.',
     challenges: [
       {
-        title: 'A pipeline, not a single prompt',
-        body: 'Four stages, each with one job: vision extracts what’s on the plate; a tiered resolver matches it against a Nigerian dish library, falling back to USDA and then AI estimation; a deterministic scorer computes the health score; a final stage writes the explanation.',
-      },
-      {
         title: 'Data that works beyond one region',
-        body: 'The West African Food Composition Table covers Nigerian dishes specifically, with USDA’s global database underneath for everything else — a tiered design rather than a single-market dataset with a fallback bolted on.',
-      },
-      {
-        title: 'Scores you can trust',
-        body: 'The health score is computed deterministically, so the same meal scores the same way every time. The model explains the score; it doesn’t invent it.',
+        body: 'The West African Food Composition Table covers Nigerian dishes, with USDA underneath for everything else, so it’s accurate for Nigerian meals without being locked to them.',
       },
       {
         title: 'Personal targets, live',
-        body: 'Onboarding computes daily calorie and macro targets with the Mifflin-St Jeor BMR/TDEE formula for the user’s goal, and Firestore listeners keep the calorie ring and recent meals in sync as entries are added or edited.',
+        body: 'Onboarding computes calorie and macro targets with Mifflin-St Jeor BMR/TDEE for the user’s goal. Firestore listeners keep the calorie ring and recent meals in sync.',
       },
     ],
     architecture: [
@@ -439,7 +396,6 @@ export const projects = [
       { k: 'Backend', v: 'Firebase Cloud Functions, Firestore' },
       { k: 'AI', v: 'Anthropic API' },
       { k: 'Nutrition data', v: 'West African Food Composition Table → USDA → AI estimate' },
-      { k: 'Targets', v: 'Mifflin-St Jeor BMR / TDEE' },
     ],
     screens: [
       {
@@ -465,7 +421,7 @@ export const projects = [
         ],
       },
     ],
-    outcome: ['In development, with an Android build available to download.'],
+    outcome: ['In development. The Android build is available to download.'],
   },
 
   {
@@ -475,7 +431,7 @@ export const projects = [
     category: 'Food · Logistics',
     tagline: 'One basket, many restaurants.',
     summary:
-      'A two-sided delivery platform for food, groceries, pharmacy and logistics. I built the customer app from scratch and overhauled the rider app’s architecture, state management and UI; both are in internal testing ahead of launch.',
+      'Food, groceries, pharmacy and logistics in one delivery platform. I built the customer app from scratch and rebuilt the rider app.',
     layout: 'strip',
     kind: 'device',
     theme: { bg: '#ECE6F2', fg: '#1C1524', muted: '#62566F', accent: '#6D3FB0', panel: '#E0D7EA' },
@@ -487,36 +443,29 @@ export const projects = [
     platforms: 'iOS & Android',
     links: [],
     owned: [
-      'Customer app built from scratch',
-      'Rider app architecture, state management and UI overhauled',
-      'Multi-vendor cart — order from multiple restaurants in a single checkout',
-      'Real-time rider order notifications over WebSockets for live delivery tracking',
-      'Paystack integration with success, failure and cancellation handled',
+      'Multi-vendor cart, one checkout',
+      'Live rider orders over WebSockets',
+      'Paystack with every outcome handled',
     ],
     stack: ['Flutter', 'BLoC', 'Paystack', 'WebSockets', 'Dio'],
     overview: [
-      'Ofxpress is a delivery platform spanning food, groceries, pharmacy and logistics. Customers browse every category from one home screen and can order from several restaurants in one basket; riders receive orders in real time.',
+      'Customers browse every category from one home screen and can order from several restaurants in one basket; riders receive orders in real time.',
     ],
-    problem:
-      'A multi-category, multi-vendor platform puts a lot on one screen and a lot into one checkout. The home screen has to stay fast while many vendor sections load, the cart has to handle more than one restaurant, and riders need to hear about orders the moment they arrive.',
+    problem: 'A lot on one screen, a lot in one checkout, and riders who need to know the moment an order lands.',
     team:
-      'I joined Ofast on contract. I built the customer app from scratch, and took over the existing rider app — overhauling its architecture, state management and UI.',
+      'On contract with Ofast, I built the customer app from scratch and took over the existing rider app, overhauling its architecture, state management and UI.',
     challenges: [
       {
         title: 'A home screen that loads in pieces',
-        body: 'The multi-category homepage resolves every section from a single endpoint, with each vendor section loading independently and lazily.',
+        body: 'Every section resolves from a single endpoint, and each vendor section loads independently and lazily.',
       },
       {
         title: 'Multiple restaurants, one checkout',
-        body: 'The multi-vendor cart lets customers order from multiple restaurants in a single checkout flow.',
+        body: 'The multi-vendor cart takes orders from several restaurants in a single checkout, paid through Paystack with success, failure and cancellation handled.',
       },
       {
         title: 'Riders in real time',
-        body: 'Rider order notifications arrive over WebSockets, so riders see new orders and live delivery updates as they happen.',
-      },
-      {
-        title: 'Every payment state',
-        body: 'Paystack is integrated with complete handling for success, failure and cancellation.',
+        body: 'Order notifications arrive over WebSockets, so riders see new orders and delivery updates as they happen.',
       },
     ],
     architecture: [
@@ -540,7 +489,7 @@ export const projects = [
         items: [S('ofxpress', 'rider-01-orders', 'Ofxpress rider orders', 'Live orders')],
       },
     ],
-    outcome: ['Both apps in internal testing ahead of launch.', 'Customer app built from scratch; rider app overhauled end to end.'],
+    outcome: ['Both apps are in internal testing ahead of launch.'],
   },
 ];
 
@@ -553,13 +502,11 @@ export const moreWork = [
     where: 'Jamforte Technologies',
     status: 'In internal testing',
     summary:
-      'Difamer Business is the farmer-facing app of an agri-marketplace: farmers list produce for customers to browse and buy, manage stock, track orders and get paid.',
+      'The farmer-facing app of an agri-marketplace: list produce, manage stock, track orders and get paid.',
     points: [
-      'Produce listing with stock management, product images and category tagging',
-      'Wallet with earnings tracking, top-up and withdrawal via Flutterwave',
-      'Multi-business switcher — manage multiple businesses from one account',
-      'Order pipeline across new, in-transit, delivered and completed states',
-      'How-to video onboarding for first-time farmers',
+      'Flutterwave wallet with top-up and withdrawal',
+      'Several businesses from one account',
+      'Video onboarding for first-time farmers',
     ],
     stack: ['Flutter', 'BLoC', 'Flutterwave', 'Clean Architecture', 'GetIt'],
     screens: [
@@ -576,12 +523,11 @@ export const moreWork = [
     where: 'Freelance',
     status: 'In internal testing',
     summary:
-      'An amateur football platform: a player app and a linked admin app, both built independently from scratch for a private client.',
+      'An amateur football platform: a player app and an admin app, built from scratch for a private client.',
     points: [
-      'Player app: watch training drills, upload your own for admin review, follow team leaderboards and ongoing tournaments',
-      'Tournament registration with Monnify payment processing end to end',
-      'Admin app with review of player-submitted drills',
-      'Real-time live match updates over WebSockets',
+      'Drill uploads with admin review',
+      'Tournament registration with Monnify payments',
+      'Live match updates over WebSockets',
     ],
     stack: ['Flutter', 'BLoC', 'Monnify', 'WebSockets'],
     screens: [S('nextkick', '01-signup', 'NextKick sign-up choosing Player or Team', 'Sign-up')],
@@ -600,10 +546,7 @@ export const experience = [
     dates: 'Sep 2026 — Present',
     projects: ['midddleman', 'midddleman-agent'],
     points: [
-      'Lead mobile development of the Midddleman customer and agent apps on iOS and Android (customer app: 10k+ installs on Google Play), with responsibility for technical direction and delivery',
-      'Own the procurement chat, survey system, and offline, session-security and caching layers in the agent app; connectivity, session-timeout, iOS push and badging in the customer app',
-      'Own the end-to-end release pipeline across App Store Connect, TestFlight, Google Play Console and Shorebird OTA patching',
-      'Work with the QA team to validate builds before release',
+      'Lead mobile for the Midddleman customer and agent apps (10,000+ installs on Google Play): technical direction, delivery and the release pipeline',
     ],
   },
   {
@@ -616,10 +559,8 @@ export const experience = [
     dates: 'Jul 2025 — Jul 2026',
     projects: ['pawshauz'],
     points: [
-      'Built Pawshauz Customer and Pawshauz Merchant from scratch as a two-sided marketplace and shipped both to production on iOS and Android — about 1,000 users combined',
-      'Built Difamer Business, a farmer-facing app for listing produce for customers to browse and buy (in internal testing)',
-      'Established Clean Architecture across all codebases — BLoC, repository pattern over Dio, GetIt — decoupling UI from data sources',
-      'AI chat with persistent sessions, letter-by-letter streaming and graceful mid-response exit; Flutterwave subscription, top-up and withdrawal flows',
+      'Sole mobile engineer: shipped both Pawshauz apps to both stores (about 1,000 users) and built Difamer Business',
+      'Set up Clean Architecture across every codebase (BLoC, repositories over Dio, GetIt)',
     ],
   },
   {
@@ -632,9 +573,7 @@ export const experience = [
     dates: 'Sep 2025 — Present',
     projects: ['ofxpress'],
     points: [
-      'Built the customer app from scratch and overhauled the rider app’s architecture, state management and UI; both in internal testing ahead of launch',
-      'Multi-category homepage where each vendor section loads independently and lazily from a single endpoint',
-      'Real-time rider order notifications over WebSockets; Paystack payments with success, failure and cancellation handled',
+      'Built the Ofxpress customer app from scratch and overhauled the rider app; both in internal testing',
     ],
   },
   {
@@ -647,8 +586,7 @@ export const experience = [
     dates: 'Apr — Jun 2026',
     projects: [],
     points: [
-      'Mentored interns through the programme — 10 in the early stage, narrowing to 4 by the final stage — with 1:1 technical guidance and code reviews',
-      'Guided interns building the Telex desktop collaboration app: translating design specs into Flutter UI and unblocking state-management and architecture issues',
+      'Mentored interns building the Telex desktop app, 10 at the start and 4 by the final stage, through 1:1 guidance and code reviews',
     ],
   },
   {
@@ -661,8 +599,7 @@ export const experience = [
     dates: 'Aug — Nov 2025',
     projects: [],
     points: [
-      'Built NextKick Player and NextKick Admin independently from scratch for an amateur football platform (in internal testing)',
-      'Training drills with admin review, team leaderboards, tournament registration with Monnify payments, and live match updates over WebSockets',
+      'Built the NextKick player and admin apps from scratch for an amateur football platform (in internal testing)',
     ],
   },
   {
@@ -675,8 +612,7 @@ export const experience = [
     dates: 'Feb — Apr 2025',
     projects: [],
     points: [
-      'Built desktop UI for Telex, a team collaboration app, as part of a 35-engineer cross-functional team',
-      'Finished as one of 19 finalists from the full cohort',
+      'Built desktop UI for Telex in a 35-engineer team and finished as one of 19 finalists',
     ],
   },
 ];
@@ -689,28 +625,28 @@ export const education = [
 export const principles = [
   {
     title: 'Boundaries before features',
-    body: 'Clean Architecture, BLoC and dependency injection aren’t ceremony. When Shmood’s audio-layer swap surfaced an AVAudioSession conflict, those boundaries kept the fix inside one layer.',
+    body: 'Clean layers aren’t ceremony. They keep a fix inside the layer that broke.',
   },
   {
     title: 'Real networks are the main path',
-    body: 'Offline handling, caching and session management decide whether an app is usable for people on unreliable connections. I treat them as core features, not edge cases.',
+    body: 'Offline handling and caching are core features for people on unreliable connections.',
   },
   {
     title: 'Every state gets designed',
-    body: 'Payments succeed, fail and get cancelled. Streams get interrupted. I build for all of it — Paystack, Flutterwave and Monnify flows with every outcome handled.',
+    body: 'Payments fail and streams get interrupted. I build for every outcome, not just the happy path.',
   },
   {
     title: 'Shipping is part of the job',
-    body: 'Signing, provisioning, TestFlight, Play Console and Shorebird OTA patches. An app isn’t finished until it’s in people’s hands — and can be fixed fast once it is.',
+    body: 'An app isn’t finished until it’s in people’s hands, and can be patched fast once it is.',
   },
 ];
 
 export const expertise = [
-  { group: 'Mobile', items: ['Flutter', 'Dart', 'Kotlin', 'Native Android', 'Flutter desktop'], note: 'Flutter is the primary stack across every product here, shipped to iOS and Android.' },
-  { group: 'Architecture', items: ['Clean Architecture', 'Repository pattern', 'BLoC', 'Riverpod', 'GetIt'], note: 'Layered apps with clear data, domain and presentation boundaries and injected dependencies.' },
-  { group: 'Testing', items: ['Unit tests', 'Widget tests', 'QA handoff'], note: 'Decoupled layers so logic can be tested independently; builds validated with QA before release.' },
-  { group: 'Networking & data', items: ['Dio', 'REST APIs', 'WebSockets', 'Firebase', 'Hive', 'GetStorage'], note: 'Offline-first behaviour, caching (including TTL caching) and session management.' },
-  { group: 'Payments & services', items: ['Paystack', 'Flutterwave', 'Monnify', 'Apple IAP', 'OneSignal', 'Google Places SDK'], note: 'Paystack in Ofxpress, Flutterwave in Pawshauz and Difamer, Monnify in NextKick — every success, failure and cancellation state handled.' },
-  { group: 'AI & real-time', items: ['OpenAI APIs', 'OpenAI Realtime', 'Anthropic API', 'WebRTC'], note: 'Streaming assistants, live voice and multi-stage AI pipelines.' },
-  { group: 'Delivery', items: ['App Store Connect', 'TestFlight', 'Xcode signing', 'Google Play Console', 'Gradle', 'Shorebird OTA'], note: 'The full release pipeline, from code signing to over-the-air patches.' },
+  { group: 'Mobile', items: ['Flutter', 'Dart', 'Kotlin', 'Native Android', 'Flutter desktop'] },
+  { group: 'Architecture', items: ['Clean Architecture', 'Repository pattern', 'BLoC', 'Riverpod', 'GetIt'] },
+  { group: 'Testing', items: ['Unit tests', 'Widget tests', 'QA handoff'] },
+  { group: 'Networking & data', items: ['Dio', 'REST APIs', 'WebSockets', 'Firebase', 'Hive', 'GetStorage'] },
+  { group: 'Payments & services', items: ['Paystack', 'Flutterwave', 'Monnify', 'Apple IAP', 'OneSignal', 'Google Places SDK'] },
+  { group: 'AI & real-time', items: ['OpenAI APIs', 'OpenAI Realtime', 'Anthropic API', 'WebRTC'] },
+  { group: 'Delivery', items: ['App Store Connect', 'TestFlight', 'Xcode signing', 'Google Play Console', 'Gradle', 'Shorebird OTA'] },
 ];

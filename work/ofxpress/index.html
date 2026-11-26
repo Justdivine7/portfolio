@@ -4,30 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ofast / Ofxpress — Case study · Divine Ajayi</title>
-<meta name="description" content="Ofast / Ofxpress: A two-sided delivery platform for food, groceries, pharmacy and logistics. I built the customer app from scratch and overhauled the rider app’s architecture, state management and UI; both are in internal testing ahead of launch.">
+<meta name="description" content="Ofast / Ofxpress: Food, groceries, pharmacy and logistics in one delivery platform. I built the customer app from scratch and rebuilt the rider app.">
 <link rel="canonical" href="https://divine-ajayi.vercel.app/work/ofxpress/">
 <meta name="author" content="Divine Ajayi">
 <meta name="theme-color" content="#F3F0E8">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Divine Ajayi">
 <meta property="og:title" content="Ofast / Ofxpress — Case study · Divine Ajayi">
-<meta property="og:description" content="Ofast / Ofxpress: A two-sided delivery platform for food, groceries, pharmacy and logistics. I built the customer app from scratch and overhauled the rider app’s architecture, state management and UI; both are in internal testing ahead of launch.">
+<meta property="og:description" content="Ofast / Ofxpress: Food, groceries, pharmacy and logistics in one delivery platform. I built the customer app from scratch and rebuilt the rider app.">
 <meta property="og:url" content="https://divine-ajayi.vercel.app/work/ofxpress/">
 <meta property="og:image" content="https://divine-ajayi.vercel.app/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ofast / Ofxpress — Case study · Divine Ajayi">
-<meta name="twitter:description" content="Ofast / Ofxpress: A two-sided delivery platform for food, groceries, pharmacy and logistics. I built the customer app from scratch and overhauled the rider app’s architecture, state management and UI; both are in internal testing ahead of launch.">
+<meta name="twitter:description" content="Ofast / Ofxpress: Food, groceries, pharmacy and logistics in one delivery platform. I built the customer app from scratch and rebuilt the rider app.">
 <meta name="twitter:image" content="https://divine-ajayi.vercel.app/assets/og.png">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Tektur:wdth,wght@75..100,500..800&display=swap">
-<link rel="stylesheet" href="/assets/css/site.css?v=c38ade80f3">
+<link rel="stylesheet" href="/assets/css/site.css?v=3cce9f9f87">
 <script>document.documentElement.classList.add('js')</script>
-<script src="/assets/js/site.js?v=c38ade80f3" defer></script>
+<script src="/assets/js/site.js?v=3cce9f9f87" defer></script>
 
 </head>
 <body class="case-page case-page--light" style="--c-bg:#ECE6F2;--c-fg:#1C1524;--c-muted:#62566F;--c-accent:#6D3FB0;--c-panel:#E0D7EA;--native:180px">
@@ -76,30 +76,23 @@
   <div class="wrap case-body">
     <aside class="case-toc" aria-label="On this page">
       <p class="label">On this page</p>
-      <ol><li><a href="#overview" data-toc-link="overview">Overview</a></li><li><a href="#problem" data-toc-link="problem">The problem</a></li><li><a href="#role" data-toc-link="role">My role</a></li><li><a href="#challenges" data-toc-link="challenges">Engineering</a></li><li><a href="#architecture" data-toc-link="architecture">Architecture</a></li><li><a href="#screens" data-toc-link="screens">Screens</a></li><li><a href="#outcome" data-toc-link="outcome">Outcome</a></li></ol>
+      <ol><li><a href="#overview" data-toc-link="overview">Overview</a></li><li><a href="#role" data-toc-link="role">My role</a></li><li><a href="#challenges" data-toc-link="challenges">Engineering</a></li><li><a href="#architecture" data-toc-link="architecture">Architecture</a></li><li><a href="#screens" data-toc-link="screens">Screens</a></li><li><a href="#outcome" data-toc-link="outcome">Outcome</a></li></ol>
     </aside>
     <div class="case-content">
       <section id="overview" class="case-sec">
         <h2 class="case-sec__title" data-reveal>Overview</h2>
-        <div class="case-prose" data-reveal-group><p data-reveal>Ofxpress is a delivery platform spanning food, groceries, pharmacy and logistics. Customers browse every category from one home screen and can order from several restaurants in one basket; riders receive orders in real time.</p></div>
-      </section>
-      <section id="problem" class="case-sec">
-        <h2 class="case-sec__title" data-reveal>The problem</h2>
-        <p class="case-pull" data-reveal>A multi-category, multi-vendor platform puts a lot on one screen and a lot into one checkout. The home screen has to stay fast while many vendor sections load, the cart has to handle more than one restaurant, and riders need to hear about orders the moment they arrive.</p>
+        <p class="case-pull" data-reveal>A lot on one screen, a lot in one checkout, and riders who need to know the moment an order lands.</p>
+        <div class="case-prose case-prose--after" data-reveal-group><p data-reveal>Customers browse every category from one home screen and can order from several restaurants in one basket; riders receive orders in real time.</p></div>
       </section>
       <section id="role" class="case-sec">
         <h2 class="case-sec__title" data-reveal>My role</h2>
-        <div class="case-prose"><p data-reveal>I joined Ofast on contract. I built the customer app from scratch, and took over the existing rider app — overhauling its architecture, state management and UI.</p></div>
-        <div class="case-owned" data-reveal>
-          <h3 class="label">What I owned</h3>
-          <ul><li>Customer app built from scratch</li><li>Rider app architecture, state management and UI overhauled</li><li>Multi-vendor cart — order from multiple restaurants in a single checkout</li><li>Real-time rider order notifications over WebSockets for live delivery tracking</li><li>Paystack integration with success, failure and cancellation handled</li></ul>
-        </div>
+        <div class="case-prose"><p data-reveal>On contract with Ofast, I built the customer app from scratch and took over the existing rider app, overhauling its architecture, state management and UI.</p></div>
       </section>
       <section id="challenges" class="case-sec">
         <h2 class="case-sec__title" data-reveal>Engineering challenges</h2>
         
         <ol class="challenges">
-          <li data-reveal><span class="challenges__n">01</span><h3>A home screen that loads in pieces</h3><p>The multi-category homepage resolves every section from a single endpoint, with each vendor section loading independently and lazily.</p></li><li data-reveal><span class="challenges__n">02</span><h3>Multiple restaurants, one checkout</h3><p>The multi-vendor cart lets customers order from multiple restaurants in a single checkout flow.</p></li><li data-reveal><span class="challenges__n">03</span><h3>Riders in real time</h3><p>Rider order notifications arrive over WebSockets, so riders see new orders and live delivery updates as they happen.</p></li><li data-reveal><span class="challenges__n">04</span><h3>Every payment state</h3><p>Paystack is integrated with complete handling for success, failure and cancellation.</p></li>
+          <li data-reveal><span class="challenges__n">01</span><h3>A home screen that loads in pieces</h3><p>Every section resolves from a single endpoint, and each vendor section loads independently and lazily.</p></li><li data-reveal><span class="challenges__n">02</span><h3>Multiple restaurants, one checkout</h3><p>The multi-vendor cart takes orders from several restaurants in a single checkout, paid through Paystack with success, failure and cancellation handled.</p></li><li data-reveal><span class="challenges__n">03</span><h3>Riders in real time</h3><p>Order notifications arrive over WebSockets, so riders see new orders and delivery updates as they happen.</p></li>
         </ol>
       </section>
       <section id="architecture" class="case-sec">
@@ -125,7 +118,7 @@
 
   <section id="outcome" class="wrap case-outcome" aria-labelledby="outcome-title">
     <h2 class="case-sec__title" id="outcome-title" data-reveal>Outcome</h2>
-    <ul class="case-outcome__list" data-reveal-group><li data-reveal>Both apps in internal testing ahead of launch.</li><li data-reveal>Customer app built from scratch; rider app overhauled end to end.</li></ul>
+    <ul class="case-outcome__list" data-reveal-group><li data-reveal>Both apps are in internal testing ahead of launch.</li></ul>
   </section>
 
   <a class="next-case" href="/work/midddleman/" style="--c-bg:#0F2419;--c-fg:#EEF2E6;--c-muted:#A9B8A4;--c-accent:#B9E35C;--c-panel:#183527">
@@ -141,7 +134,7 @@
     <p class="eyebrow eyebrow--light" data-reveal>Contact</p>
     <h2 class="contact__title" id="contact-title" data-split><span class="w"><span style="--i:0">Let’s</span></span> <span class="w"><span style="--i:1">build</span></span> <span class="w"><span style="--i:2">something</span></span> <span class="em-group"><span class="w"><span style="--i:3"><em>that</em></span></span> <span class="w"><span style="--i:4"><em>ships.</em></span></span></span></h2>
     <div class="contact__grid">
-      <p class="contact__lede" data-reveal>I’m open to meaningful engineering roles — international and remote included — and to collaborating on mobile products that need to be built well and keep working once they ship.</p>
+      <p class="contact__lede" data-reveal>I’m open to mobile engineering roles, international and remote included.</p>
       <div class="contact__primary" data-reveal>
         <span class="contact__label">Email</span>
         <div class="contact__email">

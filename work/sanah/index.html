@@ -4,30 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sanah — Case study · Divine Ajayi</title>
-<meta name="description" content="Sanah: Photo in, nutrition out: snap a plate, confirm what the AI detected, and get a deterministic health score with a personalized explanation of why — not just a calorie count.">
+<meta name="description" content="Sanah: Snap a plate, confirm what the AI saw, and get a health score with the reasons behind it, not just a calorie count.">
 <link rel="canonical" href="https://divine-ajayi.vercel.app/work/sanah/">
 <meta name="author" content="Divine Ajayi">
 <meta name="theme-color" content="#F3F0E8">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Divine Ajayi">
 <meta property="og:title" content="Sanah — Case study · Divine Ajayi">
-<meta property="og:description" content="Sanah: Photo in, nutrition out: snap a plate, confirm what the AI detected, and get a deterministic health score with a personalized explanation of why — not just a calorie count.">
+<meta property="og:description" content="Sanah: Snap a plate, confirm what the AI saw, and get a health score with the reasons behind it, not just a calorie count.">
 <meta property="og:url" content="https://divine-ajayi.vercel.app/work/sanah/">
 <meta property="og:image" content="https://divine-ajayi.vercel.app/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sanah — Case study · Divine Ajayi">
-<meta name="twitter:description" content="Sanah: Photo in, nutrition out: snap a plate, confirm what the AI detected, and get a deterministic health score with a personalized explanation of why — not just a calorie count.">
+<meta name="twitter:description" content="Sanah: Snap a plate, confirm what the AI saw, and get a health score with the reasons behind it, not just a calorie count.">
 <meta name="twitter:image" content="https://divine-ajayi.vercel.app/assets/og.png">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Tektur:wdth,wght@75..100,500..800&display=swap">
-<link rel="stylesheet" href="/assets/css/site.css?v=c38ade80f3">
+<link rel="stylesheet" href="/assets/css/site.css?v=3cce9f9f87">
 <script>document.documentElement.classList.add('js')</script>
-<script src="/assets/js/site.js?v=c38ade80f3" defer></script>
+<script src="/assets/js/site.js?v=3cce9f9f87" defer></script>
 
 </head>
 <body class="case-page case-page--light" style="--c-bg:#EDE0CF;--c-fg:#23170F;--c-muted:#6E5A49;--c-accent:#C2501F;--c-panel:#E2D0BA;--native:420px">
@@ -76,35 +76,28 @@
   <div class="wrap case-body">
     <aside class="case-toc" aria-label="On this page">
       <p class="label">On this page</p>
-      <ol><li><a href="#overview" data-toc-link="overview">Overview</a></li><li><a href="#problem" data-toc-link="problem">The problem</a></li><li><a href="#role" data-toc-link="role">My role</a></li><li><a href="#challenges" data-toc-link="challenges">Engineering</a></li><li><a href="#architecture" data-toc-link="architecture">Architecture</a></li><li><a href="#screens" data-toc-link="screens">Screens</a></li><li><a href="#outcome" data-toc-link="outcome">Outcome</a></li></ol>
+      <ol><li><a href="#overview" data-toc-link="overview">Overview</a></li><li><a href="#role" data-toc-link="role">My role</a></li><li><a href="#challenges" data-toc-link="challenges">Engineering</a></li><li><a href="#architecture" data-toc-link="architecture">Architecture</a></li><li><a href="#screens" data-toc-link="screens">Screens</a></li><li><a href="#outcome" data-toc-link="outcome">Outcome</a></li></ol>
     </aside>
     <div class="case-content">
       <section id="overview" class="case-sec">
         <h2 class="case-sec__title" data-reveal>Overview</h2>
-        <div class="case-prose" data-reveal-group><p data-reveal>Sanah is a food and nutrition tracker. You photograph a meal, confirm or edit what the AI detected, and get a health score with a personalized explanation of why it scored that way.</p><p data-reveal>It resolves nutrition against a dedicated Nigerian dish library first and falls back to USDA’s global database — accurate for Nigerian meals without being locked to them.</p></div>
-      </section>
-      <section id="problem" class="case-sec">
-        <h2 class="case-sec__title" data-reveal>The problem</h2>
-        <p class="case-pull" data-reveal>Nutrition data is often built around Western foods, which leaves Nigerian dishes poorly covered. And a calorie number on its own doesn’t tell you whether a meal was good for you or what to change.</p>
+        <p class="case-pull" data-reveal>A calorie number alone doesn’t tell you whether a meal was good for you, or what to change.</p>
+        <div class="case-prose case-prose--after" data-reveal-group><p data-reveal>Nutrition data is usually built around Western foods, which leaves Nigerian dishes poorly covered. Sanah resolves meals against a Nigerian dish library first, with USDA’s global database underneath.</p></div>
       </section>
       <section id="role" class="case-sec">
         <h2 class="case-sec__title" data-reveal>My role</h2>
-        <div class="case-prose"><p data-reveal>Sanah is a personal portfolio project that I build on my own.</p></div>
-        <div class="case-owned" data-reveal>
-          <h3 class="label">What I owned</h3>
-          <ul><li>A four-stage AI pipeline: vision, tiered nutrition resolution, deterministic scoring, personalized explanation</li><li>Tiered nutrition lookup — West African Food Composition Table first, USDA underneath</li><li>Daily calorie and macro targets via Mifflin-St Jeor BMR/TDEE, tailored to the user’s goal</li><li>Real-time Firestore listeners for the calorie ring and recent meals</li></ul>
-        </div>
+        <div class="case-prose"><p data-reveal>A personal project I build on my own.</p></div>
       </section>
       <section id="challenges" class="case-sec">
         <h2 class="case-sec__title" data-reveal>Engineering challenges</h2>
-        <ol class="case-pipeline" data-reveal-group aria-label="Pipeline stages"><li data-reveal><span class="case-pipeline__n">1</span><span class="case-pipeline__k">See</span><span class="case-pipeline__v">Vision extracts what’s on the plate.</span></li><li data-reveal><span class="case-pipeline__n">2</span><span class="case-pipeline__k">Resolve</span><span class="case-pipeline__v">A tiered resolver checks a Nigerian dish library, then USDA, then AI estimation.</span></li><li data-reveal><span class="case-pipeline__n">3</span><span class="case-pipeline__k">Score</span><span class="case-pipeline__v">A deterministic scorer computes the health score.</span></li><li data-reveal><span class="case-pipeline__n">4</span><span class="case-pipeline__k">Explain</span><span class="case-pipeline__v">A final stage writes the personalized explanation.</span></li></ol>
+        <ol class="case-pipeline" data-reveal-group aria-label="Pipeline stages"><li data-reveal><span class="case-pipeline__n">1</span><span class="case-pipeline__k">See</span><span class="case-pipeline__v">Vision reads the plate.</span></li><li data-reveal><span class="case-pipeline__n">2</span><span class="case-pipeline__k">Resolve</span><span class="case-pipeline__v">Nigerian dish library, then USDA, then AI estimate.</span></li><li data-reveal><span class="case-pipeline__n">3</span><span class="case-pipeline__k">Score</span><span class="case-pipeline__v">Deterministic, so the same meal scores the same.</span></li><li data-reveal><span class="case-pipeline__n">4</span><span class="case-pipeline__k">Explain</span><span class="case-pipeline__v">The model explains the score; it doesn’t invent it.</span></li></ol>
         <ol class="challenges">
-          <li data-reveal><span class="challenges__n">01</span><h3>A pipeline, not a single prompt</h3><p>Four stages, each with one job: vision extracts what’s on the plate; a tiered resolver matches it against a Nigerian dish library, falling back to USDA and then AI estimation; a deterministic scorer computes the health score; a final stage writes the explanation.</p></li><li data-reveal><span class="challenges__n">02</span><h3>Data that works beyond one region</h3><p>The West African Food Composition Table covers Nigerian dishes specifically, with USDA’s global database underneath for everything else — a tiered design rather than a single-market dataset with a fallback bolted on.</p></li><li data-reveal><span class="challenges__n">03</span><h3>Scores you can trust</h3><p>The health score is computed deterministically, so the same meal scores the same way every time. The model explains the score; it doesn’t invent it.</p></li><li data-reveal><span class="challenges__n">04</span><h3>Personal targets, live</h3><p>Onboarding computes daily calorie and macro targets with the Mifflin-St Jeor BMR/TDEE formula for the user’s goal, and Firestore listeners keep the calorie ring and recent meals in sync as entries are added or edited.</p></li>
+          <li data-reveal><span class="challenges__n">01</span><h3>Data that works beyond one region</h3><p>The West African Food Composition Table covers Nigerian dishes, with USDA underneath for everything else, so it’s accurate for Nigerian meals without being locked to them.</p></li><li data-reveal><span class="challenges__n">02</span><h3>Personal targets, live</h3><p>Onboarding computes calorie and macro targets with Mifflin-St Jeor BMR/TDEE for the user’s goal. Firestore listeners keep the calorie ring and recent meals in sync.</p></li>
         </ol>
       </section>
       <section id="architecture" class="case-sec">
         <h2 class="case-sec__title" data-reveal>Architecture &amp; integrations</h2>
-        <dl class="arch" data-reveal-group><div data-reveal><dt>Structure</dt><dd>Clean Architecture with BLoC</dd></div><div data-reveal><dt>Backend</dt><dd>Firebase Cloud Functions, Firestore</dd></div><div data-reveal><dt>AI</dt><dd>Anthropic API</dd></div><div data-reveal><dt>Nutrition data</dt><dd>West African Food Composition Table → USDA → AI estimate</dd></div><div data-reveal><dt>Targets</dt><dd>Mifflin-St Jeor BMR / TDEE</dd></div></dl>
+        <dl class="arch" data-reveal-group><div data-reveal><dt>Structure</dt><dd>Clean Architecture with BLoC</dd></div><div data-reveal><dt>Backend</dt><dd>Firebase Cloud Functions, Firestore</dd></div><div data-reveal><dt>AI</dt><dd>Anthropic API</dd></div><div data-reveal><dt>Nutrition data</dt><dd>West African Food Composition Table → USDA → AI estimate</dd></div></dl>
         <p class="chapter__stack" data-reveal><span class="label">Built with</span> Flutter<span aria-hidden="true"> / </span>BLoC<span aria-hidden="true"> / </span>Clean Architecture<span aria-hidden="true"> / </span>Firebase Cloud Functions<span aria-hidden="true"> / </span>Firestore<span aria-hidden="true"> / </span>Anthropic API</p>
       </section>
     </div>
@@ -128,7 +121,7 @@
 
   <section id="outcome" class="wrap case-outcome" aria-labelledby="outcome-title">
     <h2 class="case-sec__title" id="outcome-title" data-reveal>Outcome</h2>
-    <ul class="case-outcome__list" data-reveal-group><li data-reveal>In development, with an Android build available to download.</li></ul>
+    <ul class="case-outcome__list" data-reveal-group><li data-reveal>In development. The Android build is available to download.</li></ul>
   </section>
 
   <a class="next-case" href="/work/ofxpress/" style="--c-bg:#ECE6F2;--c-fg:#1C1524;--c-muted:#62566F;--c-accent:#6D3FB0;--c-panel:#E0D7EA">
@@ -144,7 +137,7 @@
     <p class="eyebrow eyebrow--light" data-reveal>Contact</p>
     <h2 class="contact__title" id="contact-title" data-split><span class="w"><span style="--i:0">Let’s</span></span> <span class="w"><span style="--i:1">build</span></span> <span class="w"><span style="--i:2">something</span></span> <span class="em-group"><span class="w"><span style="--i:3"><em>that</em></span></span> <span class="w"><span style="--i:4"><em>ships.</em></span></span></span></h2>
     <div class="contact__grid">
-      <p class="contact__lede" data-reveal>I’m open to meaningful engineering roles — international and remote included — and to collaborating on mobile products that need to be built well and keep working once they ship.</p>
+      <p class="contact__lede" data-reveal>I’m open to mobile engineering roles, international and remote included.</p>
       <div class="contact__primary" data-reveal>
         <span class="contact__label">Email</span>
         <div class="contact__email">
