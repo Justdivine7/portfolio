@@ -173,7 +173,7 @@ function contactSection({ compact = false } = {}) {
     <p class="eyebrow eyebrow--light" data-reveal>Contact</p>
     <h2 class="contact__title" id="contact-title" data-split>${words('Let’s build something', 0)} ${words('that ships.', 3, true)}</h2>
     <div class="contact__grid">
-      <p class="contact__lede" data-reveal>I’m open to meaningful engineering roles — international and remote included — and to collaborating on mobile products that need to be built well and keep working once they ship.</p>
+      <p class="contact__lede" data-reveal>I’m open to mobile engineering roles, international and remote included.</p>
       <div class="contact__primary" data-reveal>
         <span class="contact__label">Email</span>
         <div class="contact__email">
@@ -218,7 +218,7 @@ function hero() {
     <p class="hero__eyebrow eyebrow" data-reveal><span>${esc(site.name)}</span><span class="hero__sep" aria-hidden="true"></span><span>${esc(site.role)}</span></p>
     <h1 class="hero__title" id="hero-title" data-split>${words('Mobile products, engineered from architecture', 0)} ${words('to App Store.', 5, true)}</h1>
     <div class="hero__intro">
-      <p class="hero__lede" data-reveal>I take production apps end to end — architecture, payments, real-time features, offline-ready data layers, and the release pipeline that gets them to real users on iOS and Android.</p>
+      <p class="hero__lede" data-reveal>I build production iOS and Android apps end to end: architecture, payments, offline-ready data and the release pipeline.</p>
       <div class="hero__actions" data-reveal>
         <a class="btn btn--ink" href="#work">View my work ${ICON.down}</a>
         <a class="btn btn--line" href="${site.resume}" target="_blank" rel="noopener">Resume ${ICON.out}</a>
@@ -267,7 +267,7 @@ function chapterTitle(p, level = 'h3') {
     <p class="chapter__tagline">${esc(p.tagline)}</p>`;
 }
 
-function owned(p, n = 4) {
+function owned(p, n = 3) {
   return `<div class="chapter__owned">
       <h4 class="label">What I owned</h4>
       <ul>${p.owned
@@ -277,8 +277,8 @@ function owned(p, n = 4) {
     </div>`;
 }
 
-function stackLine(p) {
-  return `<p class="chapter__stack"><span class="label">Built with</span> ${p.stack.map(esc).join('<span aria-hidden="true"> / </span>')}</p>`;
+function stackLine(p, n = 4) {
+  return `<p class="chapter__stack"><span class="label">Built with</span> ${p.stack.slice(0, n).map(esc).join('<span aria-hidden="true"> / </span>')}</p>`;
 }
 
 function cta(p) {
@@ -363,7 +363,7 @@ const LAYOUTS = {
         .join('')}
     </div>
     <div class="chapter__body chapter__body--2">
-      <div data-reveal>${owned(p, 5)}</div>
+      <div data-reveal>${owned(p)}</div>
       <div data-reveal>${stackLine(p)}${cta(p)}</div>
     </div>
   </div>
@@ -442,7 +442,7 @@ const LAYOUTS = {
     </div>
   </div>
   <div class="wrap chapter__body chapter__body--2">
-    <div data-reveal>${owned(p, 5)}</div>
+    <div data-reveal>${owned(p)}</div>
     <div data-reveal>${stackLine(p)}${cta(p)}</div>
   </div>
 </article>`;
@@ -453,7 +453,7 @@ function moreWorkSection() {
   return `<div class="more wrap">
   <div class="more__head" data-reveal>
     <h3 class="eyebrow">Also shipped</h3>
-    <p>Two more products, built from scratch and now in internal testing.</p>
+    <p>Two more, both in internal testing.</p>
   </div>
   <ul class="more__list">
     ${moreWork
@@ -521,7 +521,7 @@ function experienceSection() {
     <header class="section-head">
       <p class="eyebrow" data-reveal>Experience</p>
       <h2 class="section-title" id="exp-title" data-split>${words('From internship finalist', 0)} ${words('to leading mobile.', 3, true)}</h2>
-      <p class="section-lede" data-reveal>Six roles since February 2025 — from intern to mentor to lead, each with more of the product, and more of the release, in my hands.</p>
+      <p class="section-lede" data-reveal>Six roles since February 2025, from intern to mentor to lead.</p>
     </header>
     ${timeline()}
     <ol class="roles">
@@ -561,8 +561,8 @@ function aboutSection() {
       <p class="eyebrow" data-reveal>About</p>
       <h2 class="about__statement" id="about-title" data-split>${words('I care most about the parts of an app', 0)} ${words('nobody screenshots', 8, true)} ${words('— the architecture, the failure states, the release.', 10)}</h2>
       <div class="about__bio" data-reveal-group>
-        <p data-reveal>I’m a mobile engineer based in Akure, Nigeria, working in Flutter, Dart and Kotlin. Today I lead mobile development at Midddleman Technologies, where I own the release pipeline and the layers that keep the customer and agent apps dependable. Before that I was the sole mobile engineer at Jamforte Technologies, shipping Pawshauz and Difamer, and I’ve built delivery and sports apps on contract. In 2026 I went back to the HNG Internship as a Flutter mentor.</p>
-        <p data-reveal>Alongside that I build AI-native products — Shmood and Sanah — to push on what a mobile app can do with voice, vision and language models, without letting a model make things up.</p>
+        <p data-reveal>I’m a mobile engineer in Akure, Nigeria, working in Flutter, Dart and Kotlin. I lead mobile at Midddleman Technologies; before that I was the sole mobile engineer at Jamforte Technologies.</p>
+        <p data-reveal>On the side I build AI products, Shmood and Sanah, without letting a model make things up.</p>
       </div>
     </div>
     <ol class="principles" data-reveal-group>
@@ -580,7 +580,7 @@ function aboutSection() {
       <dl class="toolkit__list">
         ${expertise
           .map(
-            (g) => `<div class="toolkit__row" data-reveal><dt>${esc(g.group)}</dt><dd><span class="toolkit__items">${g.items.map(esc).join('<span class="toolkit__sep" aria-hidden="true">,</span> ')}</span><span class="toolkit__note">${esc(g.note)}</span></dd></div>`,
+            (g) => `<div class="toolkit__row" data-reveal><dt>${esc(g.group)}</dt><dd><span class="toolkit__items">${g.items.map(esc).join('<span class="toolkit__sep" aria-hidden="true">,</span> ')}</span></dd></div>`,
           )
           .join('')}
       </dl>
@@ -596,7 +596,7 @@ ${hero()}
   <header class="wrap section-head section-head--work">
     <p class="eyebrow" data-reveal>Selected work · 2025 — ${NOW.getFullYear()}</p>
     <h2 class="section-title" id="work-title" data-split>${words('Products in', 0)} ${words('people’s hands.', 2, true)}</h2>
-    <p class="section-lede" data-reveal>Fintech, marketplaces, delivery and AI — live in the stores or in testing ahead of launch. Where a product was built by a team, I say exactly which parts were mine.</p>
+    <p class="section-lede" data-reveal>Where a product was built by a team, I say exactly which parts were mine.</p>
   </header>
   ${projects.map((p, i) => LAYOUTS[p.layout](p, i)).join('\n')}
   ${moreWorkSection()}
@@ -631,7 +631,6 @@ function caseStudy(p, i) {
   ];
   const toc = [
     ['overview', 'Overview'],
-    ['problem', 'The problem'],
     ['role', 'My role'],
     ['challenges', 'Engineering'],
     ['architecture', 'Architecture'],
@@ -665,19 +664,12 @@ function caseStudy(p, i) {
     <div class="case-content">
       <section id="overview" class="case-sec">
         <h2 class="case-sec__title" data-reveal>Overview</h2>
-        <div class="case-prose" data-reveal-group>${p.overview.map((x) => `<p data-reveal>${esc(x)}</p>`).join('')}</div>
-      </section>
-      <section id="problem" class="case-sec">
-        <h2 class="case-sec__title" data-reveal>The problem</h2>
         <p class="case-pull" data-reveal>${esc(p.problem)}</p>
+        <div class="case-prose case-prose--after" data-reveal-group>${p.overview.map((x) => `<p data-reveal>${esc(x)}</p>`).join('')}</div>
       </section>
       <section id="role" class="case-sec">
         <h2 class="case-sec__title" data-reveal>My role</h2>
         <div class="case-prose"><p data-reveal>${esc(p.team)}</p></div>
-        <div class="case-owned" data-reveal>
-          <h3 class="label">What I owned</h3>
-          <ul>${p.owned.map((o) => `<li>${esc(o)}</li>`).join('')}</ul>
-        </div>
       </section>
       <section id="challenges" class="case-sec">
         <h2 class="case-sec__title" data-reveal>Engineering challenges</h2>
